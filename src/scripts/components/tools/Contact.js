@@ -29,7 +29,6 @@ class ContactList extends React.Component {
         <div className='contact-list'>
           {
             this.state.contactList.map((member, i) => {
-              console.log(member.url);
               let memberPageUrl = member.url == 'http://1' ? 'rightanswer' : 'wronganswer';
               return (
                 <div className='contact-list__item' key={i}>

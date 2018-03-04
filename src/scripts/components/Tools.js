@@ -14,7 +14,6 @@ class Tools extends React.Component {
   render() {
     let archiveData = DataStore.getAllPosts(),
       getArchivePosts = archiveData.map((post, i) => {
-        console.log(post);
         return (
           <Link to={'/' + post.slug}>
             <div key={i}
