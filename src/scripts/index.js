@@ -30,10 +30,11 @@ class AppInitializer {
     'wronganswer': WrongAnswer,
     'clue': Clue,
     'timer': Timer,
-    'police': Police,
-  }
+    'police': Police
+  };
 
   buildRoutes(data) {
+    this.state = {groupName: 'bla'};
     return data.pages.map((page, i) => {
       return (
         <Route
@@ -43,7 +44,7 @@ class AppInitializer {
           exact
         />
       )
-    })
+    });
   }
 
 // TODO: check about getting all posts and pages. Right now, to add new page route you need to add page to show it and the content is in posts section.
@@ -52,13 +53,13 @@ class AppInitializer {
       render(
         <Router>
           <div>
-            <Header />
+            <Header groupName={this.state} />
 
             <Switch>
               <Route path="/" component={ Home } exact/>
 
               {this.buildRoutes(response)}
-              <Route render={() => {
+              <Route groupName='bla' render={() => {
                 return <Redirect to="/"/>
               }}/>
             </Switch>

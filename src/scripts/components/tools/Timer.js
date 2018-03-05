@@ -3,7 +3,6 @@ import DataStore from 'flux/stores/DataStore.js'
 class Timer extends React.Component {
   render() {
     let postData = DataStore.getPostBySlug('timer');
-console.log(postData)
     return (
       <div>
         <h2>Timerblabla</h2>
