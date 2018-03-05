@@ -1,6 +1,7 @@
-import DataStore from 'flux/stores/DataStore.js'
+import DataStore from 'flux/stores/DataStore.js';
 
 class Clue extends React.Component {
+
   constructor(props) {
     super(props)
     this.submitNumberInput = this.submitNumberInput.bind(this);
@@ -16,7 +17,7 @@ class Clue extends React.Component {
     this.setState({
       active: true,
       number: this.textInput.value
-    })
+    });
   }
 
   render() {
@@ -30,15 +31,11 @@ class Clue extends React.Component {
         <div id='clue' className='clue'>
           <h1 className='text-title'>{postData.title.rendered}</h1>
           <div className='text-content' dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}}/>
-          <input
-            type="text"
-            ref={(input) => this.textInput = input}/>
-
-          <input
-            type="button"
-            value="Focus the text input"
-            onClick={this.submitNumberInput}
-          />
+          <input type="text"
+                 ref={(input) => this.textInput = input}/>
+          <input type="button"
+                 value="Focus the text input"
+                 onClick={this.submitNumberInput}/>
         </div>
       );
     }
@@ -63,7 +60,7 @@ class ClueVerify extends React.Component {
 
   render() {
     console.log(this.state.showClue);
-    if(this.state.showClue) {
+    if (this.state.showClue) {
       return (
         <div>{this.state.number}</div>
       )
