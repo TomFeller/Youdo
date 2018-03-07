@@ -6,26 +6,34 @@ class Home extends React.Component {
     super(props);
     this.updateGroupName = this.updateGroupName.bind(this);
     this.state = {
-      groupName: 'bla'
+      groupName: ''
     }
   }
 
-  updateGroupName(value) {
-    this.setState({groupName: value})
+  updateGroupName() {
+    this.setState({
+      groupName: this.textInput.value
+    });
   }
+
   render() {
     let pageData = DataStore.getPageBySlug('home');
-
     return (
       <div>
         <h1>{pageData.title.rendered}</h1>
+        <h2>שם הקבוצה: {this.state.groupName}</h2>
         <div dangerouslySetInnerHTML={{__html: pageData.excerpt.rendered}}/>
         <input id='groupName'
                type='text'
                className='groupName'
-               placeholder='שם הקבוצה' />
+               placeholder='שם הקבוצה'
+               ref={(input) => this.textInput = input}
+               onChange={this.updateGroupName}/>
         <Link key={'tools'}
-              to={'tools'}
+              to={{
+                pathname: "/tools",
+                groupName: this.state.groupName
+              }}
               style={{marginRight: '10px'}}>
           שלח
         </Link>

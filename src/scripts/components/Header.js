@@ -24,7 +24,6 @@ class Header extends React.Component {
                         )                     
                    }
                 })}
-                <h3>שם הקבוצה: {this.props.groupName}</h3>
             </header>
         );
     }

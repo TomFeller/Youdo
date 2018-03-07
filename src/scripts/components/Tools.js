@@ -3,7 +3,6 @@ import DataStore from 'flux/stores/DataStore.js';
 import classNames from 'classnames';
 
 class Tools extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -12,25 +11,31 @@ class Tools extends React.Component {
   }
 
   render() {
-    let archiveData = DataStore.getAllPosts(),
-      getArchivePosts = archiveData.map((post, i) => {
-        return (
-          <Link to={'/' + post.slug}>
-            <div key={i}
-                 className={classNames(
-                   'post',
-                   'post-' + post.id,
-                   'post-' + post.slug)}>
-              <h3>{post.title.rendered}</h3>
-            </div>
-          </Link>
-        );
-      });
+    const groupName = this.props.location.groupName;
+    let toolData = DataStore.getAllPosts();
+
 
     return (
-      <div id='archive' className='archive'>
-        <h2 className='archive-title'>Archive template</h2>
-        <div className='archive-content'>{getArchivePosts}</div>
+      <div id='tools' className='tools-wrapper'>
+        <h2 className='tools-content'>שם הקבוצה: {groupName}</h2>
+        {
+          toolData.map((post, i) => {
+            return (
+              <div key={i}
+                   id={'tool-' + post.id}
+                   className={classNames(
+                     'tool',
+                     'tool-' + post.slug)}>
+                <Link to={{
+                  pathname: '/' + post.slug,
+                  groupName: groupName
+                }}>
+                  <h3>{post.title.rendered}</h3>
+                </Link>
+              </div>
+            );
+          })
+        }
       </div>
     );
   }

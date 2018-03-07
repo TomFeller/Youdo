@@ -5,6 +5,7 @@ import Header             from 'components/Header.js';
 import Home               from 'components/Home.js';
 import About              from 'components/About.js';
 import Tools              from 'components/Tools.js';
+import FinalScore         from 'components/FinalScore.js';
 import Clue               from 'components/tools/Clue.js';
 import Police             from 'components/tools/Police.js';
 import ContactList        from 'components/tools/Contact.js';
@@ -30,11 +31,11 @@ class AppInitializer {
     'wronganswer': WrongAnswer,
     'clue': Clue,
     'timer': Timer,
-    'police': Police
+    'police': Police,
+    'finalscore': FinalScore
   };
 
   buildRoutes(data) {
-    this.state = {groupName: 'bla'};
     return data.pages.map((page, i) => {
       return (
         <Route
@@ -49,18 +50,21 @@ class AppInitializer {
 
 // TODO: check about getting all posts and pages. Right now, to add new page route you need to add page to show it and the content is in posts section.
   run() {
+    const name = 'Tom Feller';
     DataActions.getPages((response)=> {
       render(
         <Router>
           <div>
-            <Header groupName={this.state} />
+            <Header groupName={name} />
 
             <Switch>
-              <Route path="/" component={ Home } exact/>
+              <Route path="/"
+                     render={(props) => <Home {...props} groupName={name} />}
+                     exact/>
 
               {this.buildRoutes(response)}
-              <Route groupName='bla' render={() => {
-                return <Redirect to="/"/>
+              <Route render={() => {
+                return <Redirect {...props} groupName={name} to="/"/>
               }}/>
             </Switch>
           </div>
