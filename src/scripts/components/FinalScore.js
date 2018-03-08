@@ -4,7 +4,7 @@ class FinalScore extends React.Component {
     console.log(groupName);
     return (
       <div id='finalScore'>
-        <h2>כל הכבוד קבוצת <span>{groupName}</span></h2>
+        <h2>כל הכבוד קבוצת <span style={{color: '#ff0000'}}>{groupName}</span></h2>
         <h3>פיצחתם את התעלומה!</h3>
         <h3>זמן המשחק שלכם הוא: </h3>
         <p>4 דקות ו15 שניות</p>
