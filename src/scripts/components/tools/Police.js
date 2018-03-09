@@ -30,7 +30,7 @@ class Police extends React.Component {
           <h2>{groupName}</h2>
           <h2>Police Icon</h2>
           <PoliceInsertName password={this.state.passwordNumber}
-                            nameAnswer='מאיר דיזנגוף'
+                            nameAnswer='bla'
                             groupName={groupName}/>
         </div>
       );

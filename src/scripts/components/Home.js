@@ -14,14 +14,18 @@ class Home extends React.Component {
     this.setState({
       groupName: this.textInput.value
     });
+    localStorage.groupname = this.textInput.value;
   }
 
   render() {
+    localStorage.clue = 0;
     let pageData = DataStore.getPageBySlug('home');
+    let groupName = localStorage.groupname;
+
     return (
       <div>
         <h1>{pageData.title.rendered}</h1>
-        <h2>שם הקבוצה: {this.state.groupName}</h2>
+        <h2>שם הקבוצה: {groupName}</h2>
         <div dangerouslySetInnerHTML={{__html: pageData.excerpt.rendered}}/>
         <input id='groupName'
                type='text'
@@ -30,10 +34,7 @@ class Home extends React.Component {
                ref={(input) => this.textInput = input}
                onChange={this.updateGroupName}/>
         <Link key={'tools'}
-              to={{
-                pathname: "/tools",
-                groupName: this.state.groupName
-              }}
+              to='/tools'
               style={{marginRight: '10px'}}>
           שלח
         </Link>

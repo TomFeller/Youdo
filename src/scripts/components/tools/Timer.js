@@ -3,12 +3,10 @@ import DataStore from 'flux/stores/DataStore.js'
 class Timer extends React.Component {
   render() {
     let postData = DataStore.getPostBySlug('timer');
-    const groupName = this.props.location.groupName;
 
     return (
       <div id='Timer' className='timer'>
         <h2>Timer</h2>
-        <h2>{groupName}</h2>
         <h1>{postData.title.rendered}</h1>
 
         <div dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}} />

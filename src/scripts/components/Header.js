@@ -6,9 +6,10 @@ class Header extends React.Component {
     render() {
         let allPages = DataStore.getAllPages();
         allPages = _.sortBy(allPages, [function(page) { return page.menu_order; }]); // Sort pages by order
-
+console.log(this.props);
         return (
             <header id="site-header" className="site-header">
+                <h1>Gourp: {localStorage.groupname}</h1>
                 <Link to="/" style={{marginRight: '10px'}} >Home</Link>
 
                 {allPages.map((page) => {

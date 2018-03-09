@@ -50,7 +50,7 @@ class AppInitializer {
 
 // TODO: check about getting all posts and pages. Right now, to add new page route you need to add page to show it and the content is in posts section.
   run() {
-    const name = 'Tom Feller';
+    console.log(name);
     DataActions.getPages((response)=> {
       render(
         <Router>
@@ -59,7 +59,7 @@ class AppInitializer {
 
             <Switch>
               <Route path="/"
-                     render={(props) => <Home {...props} groupName={name} />}
+                     render={(props) => <Home />}
                      exact/>
 
               {this.buildRoutes(response)}
