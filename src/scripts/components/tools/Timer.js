@@ -1,16 +1,16 @@
-import DataStore from 'flux/stores/DataStore.js'
-
 class Timer extends React.Component {
-  render() {
-    let postData = DataStore.getPostBySlug('timer');
+  constructor(props) {
+    super(props);
+    this.state = ({
+      time: localStorage.gameMinutes + ':' + localStorage.gameSeconds
+    });
 
+  }
+
+  render() {
     return (
       <div id='Timer' className='timer'>
-        <h2>Timer</h2>
-        <h1>{postData.title.rendered}</h1>
-
-        <div dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}} />
-        <div>{postData.text}</div>
+        <div className='time'>{this.state.time}</div>
       </div>
     );
   }

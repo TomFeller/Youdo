@@ -11,9 +11,11 @@ class Tools extends React.Component {
       isTimerRunning: false
     };
     this.startTimer = this.startTimer.bind(this);
+    localStorage.isTimerRuning = false;
   }
 
   startTimer() {
+    localStorage.isTimerRuning = true;
     this.setState({
       isTimerRunning: true
     });
@@ -28,7 +30,6 @@ class Tools extends React.Component {
       }
       localStorage.gameSeconds = seconds;
       localStorage.gameMinutes = minutes;
-      console.log(localStorage.gameMinutes + ':' + localStorage.gameSeconds);
     }
 
     setInterval(incrementSeconds, 1000);

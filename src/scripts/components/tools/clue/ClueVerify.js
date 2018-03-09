@@ -1,3 +1,4 @@
+
 class ClueVerify extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,7 @@ class ClueVerify extends React.Component {
   render() {
     if (this.state.showClue) {
       return (
-        <div>{this.state.number}</div>
+        <ClueItem id={this.state.number} />
       )
     }
     return (

@@ -1,42 +1,49 @@
 import DataStore from 'flux/stores/DataStore.js';
-import ClueVerify from './clue/ClueVerify.js';
+import ClueItem from './clue/ClueItem.js';
+import Timer from './Timer.js';
+import WarningMessage from './WarningMessage.js';
 
 class Clue extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.submitNumberInput = this.submitNumberInput.bind(this);
     this.state = ({
-      active: false,
+      submit: false,
       number: ''
     });
   }
 
   submitNumberInput() {
-    // Explicitly focus the text input using the raw DOM API
-    this.textInput.focus();
     this.setState({
-      active: true,
+      submit: true,
       number: this.textInput.value
     });
   }
 
   render() {
     let postData = DataStore.getPostBySlug('clue');
-    if (this.state.active) {
+    if (this.state.submit) {
       return (
-        <ClueVerify number={this.state.number}/>
+        <ClueItem id={this.state.number} />
       )
     } else {
       return (
         <div id='clue' className='clue'>
-          <h1 className='text-title'>{postData.title.rendered}</h1>
+          <Timer />
+          <WarningMessage content='זכרו: כל רמז יוסיף לכם 5 דקות לזמן המשחק הסופי.'
+                          tag={'clue-inner'}
+                          direction={'bottom'}/>
           <div className='text-content' dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}}/>
+          <div>
           <input type="text"
                  ref={(input) => this.textInput = input}/>
+          </div>
+          <div>
           <input type="button"
                  value="Focus the text input"
                  onClick={this.submitNumberInput}/>
+          </div>
         </div>
       );
     }

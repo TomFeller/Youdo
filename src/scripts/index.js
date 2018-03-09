@@ -1,7 +1,6 @@
 import {render}           from 'react-dom';
 import DataActions        from 'flux/actions/DataActions.js';
 
-import Header             from 'components/Header.js';
 import Home               from 'components/Home.js';
 import Tools              from 'components/Tools.js';
 import FinalScore         from 'components/FinalScore.js';
@@ -18,7 +17,6 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-
 
 class AppInitializer {
 
@@ -48,11 +46,11 @@ class AppInitializer {
 
 // TODO: check about getting all posts and pages. Right now, to add new page route you need to add page to show it and the content is in posts section.
   run() {
-    console.log(name);
     DataActions.getPages((response)=> {
       render(
         <Router>
           <div>
+            {localStorage.isTimerRuning == true && <Timer />}
             <Switch>
               <Route path="/"
                      render={(props) => <Home />}

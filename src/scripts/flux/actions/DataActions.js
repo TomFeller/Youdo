@@ -21,11 +21,6 @@ class DataActions {
         });     
     }
 
-    getGroupName() {
-        const val = document.getElementById('groupName').value;
-        return val;
-    }
-
     // Method for getting Pages data
     getPages(cb){
         this.api(this.pagesEndPoint).then((response)=>{
@@ -49,7 +44,6 @@ class DataActions {
     // This returnes an object with Pages and Posts data together
     // The Alt Store will listen for this method to fire and will store the returned data
     getSuccess(payload){
-        console.log(payload);
         return payload;
     }
 }
