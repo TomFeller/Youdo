@@ -3,7 +3,6 @@ import DataActions        from 'flux/actions/DataActions.js';
 
 import Header             from 'components/Header.js';
 import Home               from 'components/Home.js';
-import About              from 'components/About.js';
 import Tools              from 'components/Tools.js';
 import FinalScore         from 'components/FinalScore.js';
 import Clue               from 'components/tools/Clue.js';
@@ -24,7 +23,6 @@ import {
 class AppInitializer {
 
   templates = {
-    'about': About,
     'tools': Tools,
     'contactlist': ContactList,
     'rightanswer': RightAnswer,
@@ -55,13 +53,10 @@ class AppInitializer {
       render(
         <Router>
           <div>
-            <Header groupName={name} />
-
             <Switch>
               <Route path="/"
                      render={(props) => <Home />}
                      exact/>
-
               {this.buildRoutes(response)}
               <Route render={() => {
                 return <Redirect {...props} groupName={name} to="/"/>
@@ -69,11 +64,14 @@ class AppInitializer {
             </Switch>
           </div>
         </Router>
-
-        , document.getElementById('app')
+        ,document.getElementById('app')
       );
     });
   }
 }
 
 new AppInitializer().run();
+
+
+
+// <Header groupName={name} />

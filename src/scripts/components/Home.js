@@ -20,23 +20,21 @@ class Home extends React.Component {
   render() {
     localStorage.clue = 0;
     let pageData = DataStore.getPageBySlug('home');
-    let groupName = localStorage.groupname;
 
     return (
       <div>
         <h1>{pageData.title.rendered}</h1>
-        <h2>שם הקבוצה: {groupName}</h2>
-        <div dangerouslySetInnerHTML={{__html: pageData.excerpt.rendered}}/>
+        <h2>שם הקבוצה</h2>
         <input id='groupName'
                type='text'
                className='groupName'
-               placeholder='שם הקבוצה'
+               placeholder='?????'
                ref={(input) => this.textInput = input}
                onChange={this.updateGroupName}/>
         <Link key={'tools'}
               to='/tools'
               style={{marginRight: '10px'}}>
-          שלח
+          המשך
         </Link>
       </div>
     );

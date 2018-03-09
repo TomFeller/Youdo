@@ -32,9 +32,11 @@ class ContactList extends React.Component {
               let memberPageUrl = member.url == 'http://1' ? 'rightanswer' : 'wronganswer';
               return (
                 <div className='contact-list__item' key={i}>
-                  <Link to={memberPageUrl}>
+                  <Link to={{
+                    pathname: memberPageUrl,
+                    member: member
+                  }} >
                     <div>{member.title}</div>
-                    <div>{member.id}</div>
                   </Link>
                 </div>
               );
