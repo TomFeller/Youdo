@@ -1,4 +1,4 @@
-class RightAnswer extends React.Component {
+class ContactListRightAnswer extends React.Component {
   constructor(props) {
     super(props);
     this.getRandomPhoneNumber = this.getRandomPhoneNumber.bind(this);
@@ -17,8 +17,10 @@ class RightAnswer extends React.Component {
   }
 
   render() {
-    const member = this.props.location.member.title;
+    const member = this.props.location.member.title,
+      isCorrect = this.props.location.isCorrect;
     let phoneNumber = this.getRandomPhoneNumber();
+
     return (
       <div id='member' className='member'>
         <div className='member-details'>
@@ -28,6 +30,7 @@ class RightAnswer extends React.Component {
             <p>{phoneNumber}</p> | <p>ישראל</p>
           </div>
           <p>מחייג</p>
+          <p>{isCorrect}</p>
         </div>
         <div className='member-panel'>
           PANEL
@@ -42,4 +45,4 @@ const flex = {
   alignItems: 'center'
 }
 
-export default RightAnswer;
+export default ContactListRightAnswer;

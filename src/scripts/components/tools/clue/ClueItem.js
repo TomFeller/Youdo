@@ -5,7 +5,7 @@ class ClueItem extends React.Component {
   render() {
     const {id} = this.props,
       clue = DataStore.getPostBySlug('clue-' + id);
-console.log(clue);
+
     return (
       <div id={'clueItem-' + id}
            className={classNames(

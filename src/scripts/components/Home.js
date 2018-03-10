@@ -12,15 +12,15 @@ class Home extends React.Component {
   }
 
   updateGroupName() {
+    localStorage.groupname = this.textInput.value;
     this.setState({
       groupName: this.textInput.value
     });
-    localStorage.groupname = this.textInput.value;
   }
 
   render() {
-    localStorage.clue = 0;
     let pageData = DataStore.getPageBySlug('home');
+    localStorage.clue = 0;
     localStorage.gameMinutes = '00';
     localStorage.gameSeconds = '00';
     return (

@@ -8,23 +8,30 @@ class Clue extends React.Component {
     super(props);
     this.submitNumberInput = this.submitNumberInput.bind(this);
     this.state = ({
-      submit: false,
-      number: ''
+      number: '',
+      isValid: false
     });
   }
 
   submitNumberInput() {
     this.setState({
-      submit: true,
-      number: this.textInput.value
+      number: this.textInput.value,
+      isValid: (this.textInput.value == '1001' ||
+      this.textInput.value == '1002' ||
+      this.textInput.value == '1003' ||
+      this.textInput.value == '1004' ||
+      this.textInput.value == '1005' ||
+      this.textInput.value == '1006' ||
+      this.textInput.value == '1007' ) ? true : '0'
     });
   }
 
   render() {
     let postData = DataStore.getPostBySlug('clue');
-    if (this.state.submit) {
+
+    if (this.state.isValid == true) {
       return (
-        <ClueItem id={this.state.number} />
+        <ClueItem id={this.state.number}/>
       )
     } else {
       return (
@@ -34,13 +41,13 @@ class Clue extends React.Component {
                           direction={'bottom'}/>
           <div className='text-content' dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}}/>
           <div>
-          <input type="text"
-                 ref={(input) => this.textInput = input}/>
+            <input type="text"
+                   ref={(input) => this.textInput = input}/>
           </div>
           <div>
-          <input type="button"
-                 value="Focus the text input"
-                 onClick={this.submitNumberInput}/>
+            <input type="button"
+                   value="Focus the text input"
+                   onClick={this.submitNumberInput}/>
           </div>
         </div>
       );

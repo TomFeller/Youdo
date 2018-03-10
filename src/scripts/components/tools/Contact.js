@@ -6,7 +6,7 @@ class ContactList extends React.Component {
     super(props);
     this.contactlistEndPoint = 'http://127.0.0.1:8082/wordpress/wp-json/wp-api-menus/v2/menus/3';
     this.state = {
-      contactList: [],
+      contactList: []
     }
   }
 
@@ -29,12 +29,13 @@ class ContactList extends React.Component {
         <div className='contact-list'>
           {
             this.state.contactList.map((member, i) => {
-              let memberPageUrl = member.url == 'http://1' ? 'rightanswer' : 'wronganswer';
+              let isCorrect = (member.url == 'http://1') ? 1 : 0;
               return (
                 <div className='contact-list__item' key={i}>
                   <Link to={{
-                    pathname: memberPageUrl,
-                    member: member
+                    pathname: 'contactlistrightanswer',
+                    member: member,
+                    isCorrect: isCorrect
                   }} >
                     <div>{member.title}</div>
                   </Link>

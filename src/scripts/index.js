@@ -1,4 +1,5 @@
 import {render}           from 'react-dom';
+
 import DataActions        from 'flux/actions/DataActions.js';
 
 import Home               from 'components/Home.js';
@@ -6,8 +7,8 @@ import Tools              from 'components/Tools.js';
 import FinalScore         from 'components/FinalScore.js';
 import Clue               from 'components/tools/Clue.js';
 import ContactList        from 'components/tools/Contact.js';
-import RightAnswer        from 'components/tools/contactList/RightAnswer.js';
-import WrongAnswer        from 'components/tools/contactList/WrongAnswer.js';
+import ContactListRightAnswer        from 'components/tools/contactList/ContactListRightAnswer.js';
+import ContactListWrongAnswer        from 'components/tools/contactList/ContactListWrongAnswer.js';
 import Timer              from 'components/tools/Timer.js';
 import Police             from 'components/tools/Police.js';
 import PoliceCorrectAnswer from 'components/tools/police/PoliceCorrectAnswer.js';
@@ -24,15 +25,15 @@ class AppInitializer {
 
   templates = {
     'tools': Tools,
-    'contactlist': ContactList,
-    'rightanswer': RightAnswer,
-    'wronganswer': WrongAnswer,
     'clue': Clue,
     'timer': Timer,
+    'contactlist': ContactList,
+    'contactlistrightanswer': ContactListRightAnswer,
+    'contactlistwronganswer': ContactListWrongAnswer,
     'police': Police,
-    'finalscore': FinalScore,
     'policecorrectanswer':PoliceCorrectAnswer,
-    'policewronganswer': PoliceWrongAnswer
+    'policewronganswer': PoliceWrongAnswer,
+    'finalscore': FinalScore
   };
 
   buildRoutes(data) {
@@ -54,7 +55,8 @@ class AppInitializer {
       render(
         <Router>
           <div>
-            {<Timer />}
+            <Timer />
+            <div>{localStorage.groupname && localStorage.groupname}</div>
             <Switch>
               <Route path="/"
                      render={(props) => <Home />}

@@ -28,8 +28,8 @@ class Tools extends React.Component {
         seconds = 0;
         minutes++;
       }
-      localStorage.gameSeconds = seconds;
-      localStorage.gameMinutes = minutes;
+      localStorage.gameSeconds = seconds <= 9 ? '0' + seconds : seconds;
+      localStorage.gameMinutes = minutes <= 9 ? '0' + minutes : minutes;
     }
 
     setInterval(incrementSeconds, 1000);
@@ -44,29 +44,31 @@ class Tools extends React.Component {
            style={toolsWrapper}>
         <div id='tool-timer'
              className='tool tool-timer'
-             onClick={this.startTimer}
+             onClick={localStorage.isTimerRuning && this.startTimer}
              style={tool}>
           Timer
         </div>
         {
           toolData.map((post, i) => {
-            return (
-              <div key={i}
-                   id={'tool-' + post.id}
-                   className={classNames(
-                     'tool',
-                     'tool-' + post.slug)}
-                   style={tool}>
-                {post.slug == 'clue' &&
-                <WarningMessage content='מתקשים? 5 דקות לזמן המשחק'
-                                tag={post.slug}
-                                direction={'top'}/>}
-                <Link to={this.state.isTimerRunning ? post.slug : 'tools'}>
-                  <h3>{post.title.rendered}</h3>
-                </Link>
-
-              </div>
-            );
+            const postCategory = post.categories[0];
+            if (postCategory == 6) {
+              return (
+                <div key={i}
+                     id={'tool-' + post.id}
+                     className={classNames(
+                       'tool',
+                       'tool-' + post.slug)}
+                     style={tool}>
+                  {post.slug == 'clue' &&
+                  <WarningMessage content='מתקשים? 5 דקות לזמן המשחק'
+                                  tag={post.slug}
+                                  direction={'top'}/>}
+                  <Link to={this.state.isTimerRunning ? post.slug : 'tools'}>
+                    <h3>{post.title.rendered}</h3>
+                  </Link>
+                </div>
+              );
+            }
           })
         }
       </div>
