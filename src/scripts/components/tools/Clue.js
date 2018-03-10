@@ -1,6 +1,5 @@
 import DataStore from 'flux/stores/DataStore.js';
 import ClueItem from './clue/ClueItem.js';
-import Timer from './Timer.js';
 import WarningMessage from './WarningMessage.js';
 
 class Clue extends React.Component {
