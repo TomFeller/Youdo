@@ -30,7 +30,6 @@ class Clue extends React.Component {
     } else {
       return (
         <div id='clue' className='clue'>
-          <Timer />
           <WarningMessage content='זכרו: כל רמז יוסיף לכם 5 דקות לזמן המשחק הסופי.'
                           tag={'clue-inner'}
                           direction={'bottom'}/>

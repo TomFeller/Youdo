@@ -1,14 +1,17 @@
+import {Link} from 'react-router-dom';
 import DataStore from 'flux/stores/DataStore.js'
 
 class PoliceWrongAnswer extends React.Component {
   render() {
-    let pageData = DataStore.getPageBySlug('policewronganswer');
+    const
+      pageData = DataStore.getPageBySlug('policewronganswer'),
+      answer = this.props.location.userInput;
 
-    const answer = this.props.userInput;
     return (
       <div id='wrongAnswer'>
         {answer}
         <div dangerouslySetInnerHTML={{__html: pageData.content.rendered}}/>
+        <Link to='/police'>לחצו לניסיון נוסף</Link>
       </div>
     )
   }

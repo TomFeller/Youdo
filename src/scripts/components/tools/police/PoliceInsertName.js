@@ -1,35 +1,28 @@
-import {Link} from 'react-router-dom';
-import PoliceCorrectAnswer from './PoliceCorrectAnswer.js';
-import PoliceWrongAnswer from './PoliceWrongAnswer.js';
+import {Link} from 'react-router-dom'
 import WarningMessage from '../WarningMessage.js';
 
 class PoliceInsertName extends React.Component {
   constructor(props) {
     super(props);
-    this.confirmMessage = this.confirmMessage.bind(this);
+
     this.checkAnswer = this.checkAnswer.bind(this);
 
     this.state = {
-      confirm: true,
+      isCorrect: true,
       answer: false
     }
   }
 
-  confirmMessage() {
-    this.setState({
-      confirm: false
-    })
-  }
-
   checkAnswer() {
     this.setState({
-      answer: this.textInput.value === this.props.nameAnswer ? 1 : 0
+      answer: this.textInput.value,
+      isCorrect: this.textInput.value === this.props.nameAnswer ? 1 : 0
     });
   }
 
   render() {
-    const {confirm, answer} = this.state;
-    let url = (answer === 1) ? '/policecorrectanswer' : '/policewronganswer';
+    const {isCorrect, answer} = this.state;
+    let url = (isCorrect === 1) ? '/policecorrectanswer' : '/policewronganswer';
     return (
       <div>
         <div className='guessName'>
@@ -41,12 +34,9 @@ class PoliceInsertName extends React.Component {
                    ref={(input) => this.textInput = input}
                    onChange={this.checkAnswer}/>
 
-            <input type='button'
-                   disabled={!answer}
-                   onClick={this.checkAnswer}
-                   value={'שלחי'}/>
             <Link to={{
-              pathname: url
+              pathname: url,
+              userInput: answer
             }}>link</Link>
           </div>
         </div>

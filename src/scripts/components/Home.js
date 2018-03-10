@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import DataStore from 'flux/stores/DataStore.js'
+import DataStore from 'flux/stores/DataStore.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Home extends React.Component {
     localStorage.gameSeconds = '00';
     return (
       <div>
-        <h1>{pageData.title.rendered}</h1>
+        <h1>{!pageData.title ? 'ברוכים הבאים' : pageData.title.rendered}</h1>
         <h2>שם הקבוצה</h2>
         <input id='groupName'
                type='text'
