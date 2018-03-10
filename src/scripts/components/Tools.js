@@ -30,6 +30,7 @@ class Tools extends React.Component {
       }
       localStorage.gameSeconds = seconds;
       localStorage.gameMinutes = minutes;
+      console.log(localStorage.gameSeconds);
     }
 
     setInterval(incrementSeconds, 1000);

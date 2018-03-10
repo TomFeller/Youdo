@@ -4,9 +4,7 @@ class Timer extends React.Component {
     this.state = ({
       time: localStorage.gameMinutes + ':' + localStorage.gameSeconds
     });
-
   }
-
   render() {
     return (
       <div id='Timer' className='timer'>

@@ -10,7 +10,7 @@ class PoliceCorrectAnswer extends React.Component {
         <h3>{answer} is the right answer</h3>
         <Link to={{
           pathname: '/finalscore',
-          groupName: this.props.groupName,
+          groupName: localStorage.groupName,
           gameMinutes: localStorage.gameMinutes,
           gameSeconds: localStorage.gameSeconds
         }}>צפו בלוח התוצאות</Link>

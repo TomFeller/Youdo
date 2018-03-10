@@ -1,5 +1,7 @@
+import {Link} from 'react-router-dom';
 import PoliceCorrectAnswer from './PoliceCorrectAnswer.js';
 import PoliceWrongAnswer from './PoliceWrongAnswer.js';
+import WarningMessage from '../WarningMessage.js';
 
 class PoliceInsertName extends React.Component {
   constructor(props) {
@@ -26,38 +28,27 @@ class PoliceInsertName extends React.Component {
   }
 
   render() {
+    const {confirm, answer} = this.state;
+    let url = (answer === 1) ? '/policecorrectanswer' : '/policewronganswer';
     return (
       <div>
-        {this.state.confirm &&
-        <div className='policeWarning'>
-          תשובה לא נכונה תוסיף 3 דקות לזמן הסופי.
-          <input type='button'
-                 value='הבנתי'
-                 onClick={this.confirmMessage}
-          />
-        </div>
-        }
         <div className='guessName'>
-          {!this.state.confirm &&
-          this.state.answer !== 1 &&
-          this.state.answer !== 0 &&
+          <WarningMessage content='תשובה לא נכונה תוסיף 3 דקות לזמן הסופי'
+                          direction='bottom'/>
           <div>
             <h3>שם הנעדר:</h3>
             <input type='text'
-                   disabled={this.state.confirm}
-                   ref={(input) => this.textInput = input}/>
+                   ref={(input) => this.textInput = input}
+                   onChange={this.checkAnswer}/>
+
             <input type='button'
-                   disabled={this.state.confirm}
+                   disabled={!answer}
                    onClick={this.checkAnswer}
                    value={'שלחי'}/>
+            <Link to={{
+              pathname: url
+            }}>link</Link>
           </div>
-          }
-          {(this.state.answer === 1) ?
-            <PoliceCorrectAnswer userInput={this.textInput.value}
-                                 groupName={this.props.groupName}/> :
-          (this.state.answer === 0) &&
-          <PoliceWrongAnswer userInput={this.textInput.value}/>
-          }
         </div>
       </div>
     )

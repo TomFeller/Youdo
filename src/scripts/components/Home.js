@@ -8,6 +8,7 @@ class Home extends React.Component {
     this.state = {
       groupName: ''
     }
+
   }
 
   updateGroupName() {
@@ -20,7 +21,8 @@ class Home extends React.Component {
   render() {
     localStorage.clue = 0;
     let pageData = DataStore.getPageBySlug('home');
-
+    localStorage.gameMinutes = '00';
+    localStorage.gameSeconds = '00';
     return (
       <div>
         <h1>{pageData.title.rendered}</h1>

@@ -5,11 +5,13 @@ import Home               from 'components/Home.js';
 import Tools              from 'components/Tools.js';
 import FinalScore         from 'components/FinalScore.js';
 import Clue               from 'components/tools/Clue.js';
-import Police             from 'components/tools/Police.js';
 import ContactList        from 'components/tools/Contact.js';
 import RightAnswer        from 'components/tools/contactList/RightAnswer.js';
 import WrongAnswer        from 'components/tools/contactList/WrongAnswer.js';
 import Timer              from 'components/tools/Timer.js';
+import Police             from 'components/tools/Police.js';
+import PoliceCorrectAnswer from 'components/tools/police/PoliceCorrectAnswer.js';
+import PoliceWrongAnswer from 'components/tools/police/PoliceWrongAnswer.js';
 
 import {
   BrowserRouter as Router,
@@ -28,7 +30,9 @@ class AppInitializer {
     'clue': Clue,
     'timer': Timer,
     'police': Police,
-    'finalscore': FinalScore
+    'finalscore': FinalScore,
+    'policecorrectanswer':PoliceCorrectAnswer,
+    'policewronganswer': PoliceWrongAnswer
   };
 
   buildRoutes(data) {
@@ -50,7 +54,7 @@ class AppInitializer {
       render(
         <Router>
           <div>
-            {localStorage.isTimerRuning == true && <Timer />}
+            {<Timer />}
             <Switch>
               <Route path="/"
                      render={(props) => <Home />}

@@ -22,25 +22,20 @@ class Police extends React.Component {
 
   /* TODO: make 'nameAnswer' dynamic from wordpress */
   render() {
-    const groupName = this.props.location.groupName;
-    let postData = DataStore.getPostBySlug('police');
     if (this.state.isValid) {
       return (
         <div id='police' className='police'>
-          <h2>{groupName}</h2>
+          <h2>{localStorage.groupname}</h2>
           <h2>Police Icon</h2>
           <PoliceInsertName password={this.state.passwordNumber}
-                            nameAnswer='bla'
-                            groupName={groupName}/>
+                            nameAnswer='bla'/>
         </div>
       );
     } else {
       return (
         <div id='police' className='police'>
           <h2>Police Icon</h2>
-          <h2>{groupName}</h2>
-          <h1>{postData.title.rendered}</h1>
-          <div dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}}/>
+          <h2>{localStorage.groupname}</h2>
           <h3>הכנס סיסמא:</h3>
           <input
             type="number"
