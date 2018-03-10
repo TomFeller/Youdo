@@ -4,6 +4,7 @@ import DataStore from 'flux/stores/DataStore.js';
 
 class ClueItem extends React.Component {
   render() {
+    localStorage.clue++;
     const {id} = this.props,
       clue = DataStore.getPostBySlug('clue-' + id);
 
