@@ -11,11 +11,11 @@ class Tools extends React.Component {
       isTimerRunning: false
     };
     this.startTimer = this.startTimer.bind(this);
-    localStorage.isTimerRuning = false;
+    localStorage.isTimerRunning = false;
   }
 
   startTimer() {
-    localStorage.isTimerRuning = true;
+    localStorage.isTimerRunning = true;
     this.setState({
       isTimerRunning: true
     });
@@ -44,7 +44,7 @@ class Tools extends React.Component {
            style={toolsWrapper}>
         <div id='tool-timer'
              className='tool tool-timer'
-             onClick={localStorage.isTimerRuning && this.startTimer}
+             onClick={localStorage.isTimerRunning && this.startTimer}
              style={tool}>
           Timer
         </div>
@@ -58,7 +58,7 @@ class Tools extends React.Component {
                      className={classNames(
                        'tool',
                        'tool-' + post.slug)}
-                     style={tool}>
+                     style={{...tool, ...!this.state.isTimerRunning && toolDisable}}>
                   {post.slug == 'clue' &&
                   <WarningMessage content='מתקשים? 5 דקות לזמן המשחק'
                                   tag={post.slug}
@@ -74,6 +74,10 @@ class Tools extends React.Component {
       </div>
     );
   }
+}
+
+const toolDisable = {
+  opacity: 0.4
 }
 
 const toolsWrapper = {

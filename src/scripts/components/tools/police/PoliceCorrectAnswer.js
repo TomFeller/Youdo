@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 
 class PoliceCorrectAnswer extends React.Component {
   render() {
-    const answer = this.props.userInput;
+    const answer = this.props.location.userInput;
 
     return (
       <div id='correctAnswer'>
