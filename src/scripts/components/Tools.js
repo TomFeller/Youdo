@@ -8,7 +8,7 @@ class Tools extends React.Component {
     super(props);
     this.state = {
       category: DataStore.getAllPosts(),
-      isTimerRunning: false
+      isTimerRunning: this.props.location.isTimerRunning
     };
     this.startTimer = this.startTimer.bind(this);
     localStorage.isTimerRunning = false;
