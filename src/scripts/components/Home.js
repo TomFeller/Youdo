@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import DataStore from 'flux/stores/DataStore.js';
 import {VBox, HBox} from 'react-stylesheet';
-import {Button, Input} from '../components/styles/MainStyle.js'
+import {Input, TextBox} from '../components/styles/MainStyle.js'
 
 class Home extends React.Component {
   constructor(props) {
@@ -40,12 +40,12 @@ class Home extends React.Component {
                  ref={(input) => this.textInput = input}
                  onChange={this.updateGroupName}/>
             </Input>
-          <Button>
+          <TextBox>
             <Link key={'tools'}
                   to={{pathname: '/tools'}} >
               המשך
             </Link>
-          </Button>
+          </TextBox>
         </VBox>
       </div>
     );

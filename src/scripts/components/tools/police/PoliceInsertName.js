@@ -1,10 +1,12 @@
 import {Link} from 'react-router-dom'
+import {Label, Input, TextBox} from '../../styles/MainStyle.js';
+
+
 import WarningMessage from '../WarningMessage.js';
 
 class PoliceInsertName extends React.Component {
   constructor(props) {
     super(props);
-
     this.checkAnswer = this.checkAnswer.bind(this);
 
     this.state = {
@@ -29,15 +31,19 @@ class PoliceInsertName extends React.Component {
           <WarningMessage content='תשובה לא נכונה תוסיף 3 דקות לזמן הסופי'
                           direction='bottom'/>
           <div>
-            <h3>שם הנעדר:</h3>
-            <input type='text'
-                   ref={(input) => this.textInput = input}
-                   onChange={this.checkAnswer}/>
-
-            <Link to={{
-              pathname: url,
-              userInput: answer
-            }}>link</Link>
+            <Label>שם הנעדר:</Label>
+            <Input>
+              <input type='text'
+                     ref={(input) => this.textInput = input}
+                     onChange={this.checkAnswer}/>
+            </Input>
+            <TextBox>
+              <Link to={{
+                pathname: url,
+                userInput: answer,
+                policeIcon: this.props.policeIcon
+              }}>שלח</Link>
+            </TextBox>
           </div>
         </div>
       </div>

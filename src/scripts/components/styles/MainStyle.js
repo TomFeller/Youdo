@@ -2,25 +2,32 @@ import React from 'react';
 import styled from 'styled-components';
 
 const color = {
-  main: '#fff498',
-  text: {
-    main: '#fff',
-    sub: 'red'
-  }
+  white: '#fff',
+  black: '#000',
+  background: '#fff498',
+  yellow: '#ffca48',
+  blue: '#5492bc',
+  orange: '#e8643e',
+  gray: '#e8e8e8',
 };
 
+const fontSize = {
+  sm: '1.2rem',
+  md: '1.6rem',
+  lg: '2rem'
+};
 const gutter = {
   def: '1.5rem'
 };
 
 const radius = '1rem';
+
 const
   App = styled.div`
-    background-color: ${color.main};
+    background-color: ${color.background};
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     padding: ${gutter.def}
   `,
@@ -28,16 +35,16 @@ const
   Input = styled.div`
     width: 100%;
     input {
-      outline: none;
+      background-color: ${color.gray};
+      color: ${color.black};
+      margin-bottom: ${gutter.def};
+      border-radius: ${radius};
       width: 100%;
       height: 3rem; 
-      background-color: #999;
       border: 0;
-      margin-bottom: ${gutter.def};
-      color: ${color.text.main};
-      border-radius: ${radius};
+      outline: none;
       &:hover {
-        border: solid #000;
+        border: .1rem solid #000;
       }
     }
   `,
@@ -54,6 +61,36 @@ const
     padding: 0 ${gutter.def}
     line-height: 1.8rem;
   }
+  `,
+
+  TextBox = styled.div`
+    background-color: ${color.blue};
+    border-radius: ${radius};
+    padding: ${gutter.def} 0;
+    width: 100%;
+    text-align: center;
+    * {
+      color: #fff;
+      font-size: ${fontSize.md};
+    }
+  `,
+
+  TextBoxWarning = styled.div`
+    background-color: ${color.yellow};
+    border-radius: ${radius};
+    padding: ${gutter.def} 0;
+    width: 100%;
+    text-align: center;
+    * {
+      color: ${color.blue};
+      font-size: ${fontSize.md};
+    }
+  `,
+
+  Label = styled.h3`
+    font-size: ${fontSize.lg};
+    color: ${color.black};
+    text-align: center;    
   `;
 
-export {App, Input, Button};
+export {App, Input, Label, Button, TextBox, TextBoxWarning, color};

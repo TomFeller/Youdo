@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
-import DataStore from 'flux/stores/DataStore.js'
+import DataStore from '../../../flux/stores/DataStore.js'
+import {TextBox, TextBoxWarning} from '../../styles/MainStyle.js';
 
 class PoliceWrongAnswer extends React.Component {
   render() {
@@ -10,8 +11,12 @@ class PoliceWrongAnswer extends React.Component {
     return (
       <div id='wrongAnswer'>
         {answer}
-        <div dangerouslySetInnerHTML={{__html: pageData.content.rendered}}/>
-        <Link to='/police'>לחצו לניסיון נוסף</Link>
+        <TextBox>
+          <div dangerouslySetInnerHTML={{__html: pageData.content.rendered}}/>
+        </TextBox>
+        <TextBoxWarning>
+          <Link to='/police'>לחצו לניסיון נוסף</Link>
+        </TextBoxWarning>
       </div>
     )
   }

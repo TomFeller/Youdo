@@ -1,4 +1,6 @@
-import DataStore from 'flux/stores/DataStore.js';
+import {VBox, HBox} from 'react-stylesheet';
+import {Label, Input, TextBox} from '../styles/MainStyle.js';
+import DataStore from '../../flux/stores/DataStore.js';
 import PoliceInsertName from './police/PoliceInsertName.js';
 
 class Police extends React.Component {
@@ -38,30 +40,39 @@ class Police extends React.Component {
 
   render() {
     const {isValid, userInput, correctAnswer} = this.state;
-
+    const policeData = DataStore.getPostBySlug('police');
+    let policeIconUrl = policeData.better_featured_image != null && policeData.better_featured_image.media_details.sizes.thumbnail.source_url;
     if (isValid == 1) {
       return (
         <div id='police' className='police'>
           <h2>{localStorage.groupname}</h2>
-          <h2>Police Icon</h2>
+          <HBox justifyContent='center'>
+            <img src={policeIconUrl}/>
+          </HBox>
           <PoliceInsertName password={userInput}
-                            nameAnswer={correctAnswer}/>
+                            nameAnswer={correctAnswer}
+                            policeIcon={policeIconUrl}/>
         </div>
       );
     } else {
       return (
         <div id='police' className='police'>
-          <h2>Police Icon</h2>
+          <HBox justifyContent='center'>
+            <img src={policeIconUrl}/>
+          </HBox>
           <h2>{localStorage.groupname}</h2>
-          <h3>הכנס סיסמא:</h3>
-          <input
-            type='password'
-            ref={(input) => this.textInput = input}/>
+          <Label>הכנס סיסמא:</Label>
+          <Input>
+            <input type='password'
+                   ref={(input) => this.textInput = input}/>
+          </Input>
           <span>{isValid == 0 ? 'סיסמא שגוייה' : ''}</span>
-          <input
-            type="button"
-            value="שלח"
-            onClick={this.submitNumberInput}/>
+          <TextBox>
+            <button onClick={this.submitNumberInput}>שלח</button>
+          </TextBox>
+          <HBox justifyContent='center'>
+            <img src={policeIconUrl}/>
+          </HBox>
         </div>
       );
     }
