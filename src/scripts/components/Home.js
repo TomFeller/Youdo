@@ -8,14 +8,15 @@ class Home extends React.Component {
     this.state = {
       groupName: ''
     }
-
+    localStorage.groupname = this.state.groupName;
   }
 
   updateGroupName() {
-    localStorage.groupname = this.textInput.value;
     this.setState({
       groupName: this.textInput.value
     });
+    localStorage.groupname = this.textInput.value;
+
   }
 
   render() {
@@ -23,10 +24,11 @@ class Home extends React.Component {
     localStorage.clue = 0;
     localStorage.gameMinutes = '00';
     localStorage.gameSeconds = '00';
+    localStorage.groupname = this.state.groupName;
     return (
       <div>
         <h1>{!pageData.title ? 'ברוכים הבאים' : pageData.title.rendered}</h1>
-        <h2>שם הקבוצה</h2>
+        <h2>שם הקבוצה: {this.state.groupName}</h2>
         <input id='groupName'
                type='text'
                className='groupName'
@@ -34,7 +36,7 @@ class Home extends React.Component {
                ref={(input) => this.textInput = input}
                onChange={this.updateGroupName}/>
         <Link key={'tools'}
-              to='/tools'
+              to={{pathname:'/tools'}}
               style={{marginRight: '10px'}}>
           המשך
         </Link>

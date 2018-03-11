@@ -1,7 +1,8 @@
 import {render}           from 'react-dom';
 
 import DataActions        from 'flux/actions/DataActions.js';
-
+import GeneralSettings               from 'components/GeneralSettings.js';
+import Header               from 'components/Header.js';
 import Home               from 'components/Home.js';
 import Tools              from 'components/Tools.js';
 import FinalScore         from 'components/FinalScore.js';
@@ -28,6 +29,7 @@ class AppInitializer {
     'clue': Clue,
     'timer': Timer,
     'contactlist': ContactList,
+    'generalsettings': GeneralSettings,
     'contactlistrightanswer': ContactListRightAnswer,
     'contactlistwronganswer': ContactListWrongAnswer,
     'police': Police,
@@ -55,8 +57,7 @@ class AppInitializer {
       render(
         <Router>
           <div>
-            <Timer />
-            <div>{localStorage.groupname && localStorage.groupname}</div>
+            <Header />
             <Switch>
               <Route path="/"
                      render={(props) => <Home />}

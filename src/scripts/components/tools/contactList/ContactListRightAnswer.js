@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 class ContactListRightAnswer extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +36,7 @@ class ContactListRightAnswer extends React.Component {
         <div className='member-panel'>
           PANEL
         </div>
+        <Link to={{pathname:'/tools', isTimerRunning: true}}>חזרה</Link>
       </div>
     )
   }
