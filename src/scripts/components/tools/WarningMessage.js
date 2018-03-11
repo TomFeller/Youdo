@@ -9,11 +9,12 @@ class WarningMessage extends React.Component {
 
   hideWarning() {
     this.setState({active: false});
+    localStorage.disablePage = false;
   }
 
   render() {
     const {direction} = this.props;
-
+    localStorage.disablePage = true;
     return (
       <div className={classNames('warning', 'warning-' + this.props.tag)}
            style={{

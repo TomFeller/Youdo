@@ -56,7 +56,7 @@ class AppInitializer {
     DataActions.getPages((response)=> {
       render(
         <Router>
-          <div>
+          <div id='app-wrapper'>
             <Header />
             <Switch>
               <Route path="/"
