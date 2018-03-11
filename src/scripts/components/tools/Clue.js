@@ -54,5 +54,4 @@ class Clue extends React.Component {
   }
 }
 
-
 export default Clue;
