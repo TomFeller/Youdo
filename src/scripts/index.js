@@ -50,8 +50,8 @@ class AppInitializer {
       )
     });
   }
-
-// TODO: check about getting all posts and pages. Right now, to add new page route you need to add page to show it and the content is in posts section.
+  // TODO: check about getting all posts and pages. Right now, to add new page route you need to add page to show it and the content is in posts section.
+  // TODO: Unlimit the number of pages (now its only 10)
   run() {
     DataActions.getPages((response)=> {
       render(
