@@ -21,6 +21,7 @@ class Timer extends React.Component {
     return (
       <div id='Timer' className='timer'>
         <div className='time'>{this.state.time}</div>
+        {localStorage.clue > 0 && <div className='clues'>מספר רמזים:  {localStorage.clue}</div>}
       </div>
     );
   }
