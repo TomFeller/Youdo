@@ -40,9 +40,7 @@ class Clue extends React.Component {
           <WarningMessage content='זכרו: כל רמז יוסיף לכם 5 דקות לזמן המשחק הסופי.'
                           tag={'clue-inner'}
                           direction={'bottom'}/>
-          <Label>
-          <div className='text-content' dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}}/>
-          </Label>
+          <Label className='text-content' dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}}/>
           <Input>
             <input type="text"
                    ref={(input) => this.textInput = input}/>

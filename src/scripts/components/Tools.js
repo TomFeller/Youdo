@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import {VBox, HBox} from 'react-stylesheet';
-import DataStore from 'flux/stores/DataStore.js';
+import DataStore from '../flux/stores/DataStore.js';
 import WarningMessage from './tools/WarningMessage.js';
 import classNames from 'classnames';
 
@@ -90,9 +90,9 @@ const toolDisable = {
 
 
 const tool = {
-  border: '.1rem solid red',
   width: '50%',
-  position: 'relative'
+  position: 'relative',
+  padding: '1rem'
 };
 
 export default Tools;

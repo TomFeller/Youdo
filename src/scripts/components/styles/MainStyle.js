@@ -24,8 +24,7 @@ const Gutter = {
 
 const Radius = '1rem';
 
-const
-  App = styled.div`
+const App = styled.div`
     background-color: ${Color.background};
     padding: ${Gutter.def}
     display: flex;
@@ -69,13 +68,13 @@ const
     background-color: ${Color.orange};
     color: ${Color.white};
     padding: 3rem 0;
-    margin: -1.5rem 0 10rem;
+    margin: -1.5rem 0 7rem;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-`,
+  `,
   TextBox = styled.div`
     background-color: ${Color.blue};
     border-radius: ${Radius};

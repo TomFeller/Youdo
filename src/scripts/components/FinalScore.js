@@ -1,3 +1,6 @@
+import {VBox, HBox} from 'react-stylesheet';
+import {Color, Gutter, TitleTop, Label, TextBoxWarning} from '../components/styles/MainStyle.js'
+
 class FinalScore extends React.Component {
   render() {
     const groupName = localStorage.groupname,
@@ -8,16 +11,17 @@ class FinalScore extends React.Component {
 
     return (
       <div id='finalScore'>
-        <h2>כל הכבוד קבוצת <span style={{color: '#ff0000'}}>{groupName}</span></h2>
-        <h3>פיצחתם את התעלומה!</h3>
-        <h3>זמן המשחק שלכם הוא: </h3>
-        <p>דקות {this.props.location.gameMinutes}</p>
-        <p>שניות {seconds}</p>
-        <p>{clues} רמזים = {clues * 5} דקות</p>
-        <h3>זמן משוקלל:</h3>
-        <p>{totalMinutes} דקות ו-{seconds} שניות</p>
-        <p>נתראה בהרפתקאה הבאה</p>
-        <input type='button' value='בקרו באתר שלנו'/>
+        <VBox alignItems='center'>
+          <Label>כל הכבוד קבוצת <span style={{color: '#ff0000'}}>{groupName}</span></Label>
+          <Label>פיצחתם את התעלומה!</Label>
+          <Label>זמן המשחק שלכם הוא: </Label>
+          <p>{this.props.location.gameMinutes} דקות ו- {seconds} שניות</p>
+          <p>{clues} רמזים = {clues * 5} דקות</p>
+          <Label>זמן משוקלל:</Label>
+          <p>{totalMinutes} דקות ו-{seconds} שניות</p>
+          <p>נתראה בהרפתקאה הבאה</p>
+          <input type='button' value='בקרו באתר שלנו'/>
+        </VBox>
       </div>
     )
   }

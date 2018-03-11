@@ -37,8 +37,9 @@ const
   clueContent = {
     borderTop: '.3rem solid ' + Color.blue,
     borderBottom: '.3rem solid ' + Color.blue,
-    padding: Gutter.def,
-    marginBottom: Gutter.lg
+    padding: `${Gutter.def} 0`,
+    marginBottom: Gutter.lg,
+    overflow: 'hidden'
   };
 
 export default ClueItem;
