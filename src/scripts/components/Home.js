@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import DataStore from 'flux/stores/DataStore.js';
-import {VBox, HBox} from 'react-stylesheet';
-import {Input, TextBox} from '../components/styles/MainStyle.js'
+import {VBox, HBox, Element} from 'react-stylesheet';
+import {Input, TextBox, TitleTop, Label} from '../components/styles/MainStyle.js'
 
 class Home extends React.Component {
   constructor(props) {
@@ -28,25 +28,27 @@ class Home extends React.Component {
     localStorage.gameSeconds = '00';
     localStorage.groupname = this.state.groupName;
     return (
-      <div>
-        <h1 style={{textAlign: 'center', margin: 0}}>{!pageData.title ? 'ברוכים הבאים' : pageData.title.rendered}</h1>
-        <VBox alignItems='center'>
-          <h2>שם הקבוצה: {this.state.groupName}</h2>
+      <div id='home'>
+        <TitleTop style={{height: '62vh', marginBottom: '2rem'}}>
+          <h1 style={{textAlign: 'center', margin: 0}}>{!pageData.title ? 'ברוכים הבאים' : pageData.title.rendered}</h1>
+        </TitleTop>
+        <Element height={'38vh'}>
+          <Label>שם הקבוצה {this.state.groupName}</Label>
           <Input>
-          <input id='groupName'
-                 type='text'
-                 className='groupName'
-                 placeholder='?????'
-                 ref={(input) => this.textInput = input}
-                 onChange={this.updateGroupName}/>
-            </Input>
+            <input id='groupName'
+                   type='text'
+                   className='groupName'
+                   placeholder='?????'
+                   ref={(input) => this.textInput = input}
+                   onChange={this.updateGroupName}/>
+          </Input>
           <TextBox>
             <Link key={'tools'}
-                  to={{pathname: '/tools'}} >
+                  to={{pathname: '/tools'}}>
               המשך
             </Link>
           </TextBox>
-        </VBox>
+        </Element>
       </div>
     );
   }

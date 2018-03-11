@@ -1,5 +1,7 @@
 import classNames from 'classnames';
-import {Button} from '../../components/styles/MainStyle.js'
+import {TextBox, TextBoxWarning, Color} from '../../components/styles/MainStyle.js'
+import {VBox, HBox} from 'react-stylesheet';
+
 class WarningMessage extends React.Component {
   constructor(props) {
     super(props);
@@ -19,40 +21,30 @@ class WarningMessage extends React.Component {
       <div className={classNames('warning', 'warning-' + this.props.tag)}
            style={{
              ...warningWrapper,
-             ...direction == 'top' ? buttonIsTop : buttonIsBottom,
              ...!this.state.active && {display: 'none'}
            }}>
-        <div className='warning-textBox'
-             style={textBox}>
-          <p>{this.props.content}</p>
-        </div>
-        <Button>
-          <button onClick={this.hideWarning}>הבנתי</button>
-        </Button>
+        <VBox flexDirection={direction == 'top' ? 'column' : 'column-reverse'}>
+          <TextBox style={{border:'4px solid' + Color.yellow}}>
+            <p>{this.props.content}</p>
+          </TextBox>
+          <TextBoxWarning>
+            <button onClick={this.hideWarning}
+                    style={{color: '#fff'}}>
+              הבנתי
+            </button>
+          </TextBoxWarning>
+        </VBox>
       </div>
     )
   }
 }
 
-const
-  textBox = {
-    backgroundColor: 'blue',
-    border: '.4rem solid yellow',
-    borderRadius: '1rem',
-    color: 'yellow',
-    padding: '.5rem'
-  },
-  warningWrapper = {
-    display: 'flex',
-    alignItems: 'center',
+const warningWrapper = {
+    width: '15rem',
     position: 'absolute',
     zIndex: '1000'
-  },
-  buttonIsTop = {
-    flexDirection: 'column-reverse'
-  },
-  buttonIsBottom = {
-    flexDirection: 'column'
   };
+
+
 
 export default WarningMessage;
