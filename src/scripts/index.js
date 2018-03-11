@@ -15,6 +15,8 @@ import Police             from 'components/tools/Police.js';
 import PoliceCorrectAnswer from 'components/tools/police/PoliceCorrectAnswer.js';
 import PoliceWrongAnswer from 'components/tools/police/PoliceWrongAnswer.js';
 
+import {App} from 'components/styles/MainStyle.js';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -56,7 +58,7 @@ class AppInitializer {
     DataActions.getPages((response)=> {
       render(
         <Router>
-          <div id='app-wrapper'>
+          <App id='app-wrapper'>
             <Header />
             <Switch>
               <Route path="/"
@@ -67,7 +69,7 @@ class AppInitializer {
                 return <Redirect {...props} groupName={name} to="/"/>
               }}/>
             </Switch>
-          </div>
+          </App>
         </Router>
         ,document.getElementById('app')
       );
@@ -77,6 +79,8 @@ class AppInitializer {
 
 new AppInitializer().run();
 
-
+const app = {
+  backgroundColor:'yellow'
+}
 
 // <Header groupName={name} />

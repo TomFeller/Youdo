@@ -5,11 +5,9 @@ import DataStore from 'flux/stores/DataStore.js'
 class Header extends React.Component {
 
   render() {
-
     return (
-
-      <header id="site-header" className="site-header">
-        <h1>שם הקבוצה: {localStorage.groupname}</h1>
+      <header id="site-header" className="site-header" style={{position: 'absolute', top: '0'}}>
+        <div>שם הקבוצה: {localStorage.groupname}</div>
         <Timer />
       </header>
     );

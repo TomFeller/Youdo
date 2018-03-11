@@ -1,7 +1,9 @@
 import {Link} from 'react-router-dom';
+import {VBox, HBox} from 'react-stylesheet';
 import DataStore from 'flux/stores/DataStore.js';
 import WarningMessage from './tools/WarningMessage.js';
 import classNames from 'classnames';
+
 
 class Tools extends React.Component {
   constructor(props) {
@@ -36,41 +38,47 @@ class Tools extends React.Component {
   }
 
   render() {
-    let toolData = DataStore.getAllPosts();
+    let toolData = DataStore.getAllPosts(),
+      timerData = DataStore.getPostBySlug('timer');
 
     return (
-      <div id='tools'
-           className='tools-wrapper'
-           style={toolsWrapper}>
-        <div id='tool-timer'
-             className='tool tool-timer'
-             onClick={localStorage.isTimerRunning && this.startTimer}
-             style={tool}>
-          Timer
-        </div>
-        {
-          toolData.map((post, i) => {
-            const postCategory = post.categories[0];
-            if (postCategory == 6) {
-              return (
-                <div key={i}
-                     id={'tool-' + post.id}
-                     className={classNames(
-                       'tool',
-                       'tool-' + post.slug)}
-                     style={{...tool, ...!this.state.isTimerRunning && toolDisable}}>
-                  {post.slug == 'clue' &&
-                  <WarningMessage content='מתקשים? 5 דקות לזמן המשחק'
-                                  tag={post.slug}
-                                  direction={'top'}/>}
-                  <Link to={this.state.isTimerRunning ? post.slug : 'tools'}>
-                    <h3>{post.title.rendered}</h3>
-                  </Link>
-                </div>
-              );
-            }
-          })
-        }
+      <div id='tools'>
+        <HBox flexWrap='wrap'>
+          <div id='tool-timer'
+               className='tool tool-timer'
+               onClick={localStorage.isTimerRunning && this.startTimer}
+               style={tool}>
+            <HBox justifyContent='center' alignItems='center'>
+              <img style={{width:'width:100%;'}} src={timerData.better_featured_image.media_details.sizes.thumbnail.source_url} />
+            </HBox>
+          </div>
+          {
+            toolData.map((post, i) => {
+              const postCategory = post.categories[0];
+              let iconUrl = post.better_featured_image != null && post.better_featured_image.media_details.sizes.thumbnail.source_url;
+              if (postCategory == 6 && post.slug != 'timer') {
+                return (
+                  <div key={i}
+                       id={'tool-' + post.id}
+                       className={classNames(
+                         'tool',
+                         'tool-' + post.slug)}
+                       style={{...tool, ...!this.state.isTimerRunning && toolDisable}}>
+                    {post.slug == 'clue' &&
+                    <WarningMessage content='מתקשים? 5 דקות לזמן המשחק'
+                                    tag={post.slug}
+                                    direction={'top'}/>}
+                    <Link to={this.state.isTimerRunning ? post.slug : 'tools'}>
+                      <HBox justifyContent='center' alignItems='center'>
+                        <img src={iconUrl}/>
+                      </HBox>
+                    </Link>
+                  </div>
+                );
+              }
+            })
+          }
+        </HBox>
       </div>
     );
   }
@@ -78,17 +86,14 @@ class Tools extends React.Component {
 
 const toolDisable = {
   opacity: 0.4
-}
-
-const toolsWrapper = {
-  display: 'flex',
-  flexWrap: 'wrap'
 };
 
+
 const tool = {
-  border: '1px solid red',
-  width: '50%'
-}
+  border: '.1rem solid red',
+  width: '50%',
+  position: 'relative'
+};
 
 export default Tools;
 

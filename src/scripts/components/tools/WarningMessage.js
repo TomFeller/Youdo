@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-
+import {Button} from '../../components/styles/MainStyle.js'
 class WarningMessage extends React.Component {
   constructor(props) {
     super(props);
@@ -26,9 +26,9 @@ class WarningMessage extends React.Component {
              style={textBox}>
           <p>{this.props.content}</p>
         </div>
-        <div className='warning-button'>
+        <Button>
           <button onClick={this.hideWarning}>הבנתי</button>
-        </div>
+        </Button>
       </div>
     )
   }
@@ -37,14 +37,16 @@ class WarningMessage extends React.Component {
 const
   textBox = {
     backgroundColor: 'blue',
-    border: '4px solid yellow',
-    borderRadius: '10px',
+    border: '.4rem solid yellow',
+    borderRadius: '1rem',
     color: 'yellow',
-    padding: '5px'
+    padding: '.5rem'
   },
   warningWrapper = {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    position: 'absolute',
+    zIndex: '1000'
   },
   buttonIsTop = {
     flexDirection: 'column-reverse'

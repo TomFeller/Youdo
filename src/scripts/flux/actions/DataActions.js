@@ -23,7 +23,7 @@ class DataActions {
 
     // Method for getting Pages data
     getPages(cb){
-        this.api(this.pagesEndPoint).then((response)=>{
+        this.api(this.pagesEndPoint + '/?_embed').then((response)=>{
             this.getPosts(response, cb)
         });
         return true;
@@ -31,7 +31,7 @@ class DataActions {
 
     // Method for getting Posts data
     getPosts(pages, cb){
-        this.api(this.postsEndPoint).then((response)=>{
+        this.api(this.postsEndPoint + '/?_embed').then((response)=>{
             const posts     = response
             const payload   = { pages, posts };
 
