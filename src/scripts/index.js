@@ -79,8 +79,5 @@ class AppInitializer {
 
 new AppInitializer().run();
 
-const app = {
-  backgroundColor:'yellow'
-}
 
 // <Header groupName={name} />

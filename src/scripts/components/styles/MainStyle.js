@@ -18,6 +18,7 @@ const FontSize = {
   lg: '2rem'
 };
 const Gutter = {
+  sm: '1rem',
   def: '1.5rem',
   lg: '4rem'
 };
@@ -78,25 +79,43 @@ const App = styled.div`
   TextBox = styled.div`
     background-color: ${Color.blue};
     border-radius: ${Radius};
-    padding: ${Gutter.def} 0;
-    margin: ${Gutter.def} 0;
     width: 100%;
     text-align: center;
     * {
       color: #fff;
       font-size: ${FontSize.md};
     }
+    button, a {
+      width:100%;
+      height:5rem;
+      background-color:transparent
+      border: 0;
+      display: flex;
+      align-items: center
+      justify-content: center;
+      text-align: center;
+    }
   `,
 
   TextBoxWarning = styled.div`
     background-color: ${Color.yellow};
     border-radius: ${Radius};
-    padding: ${Gutter.def} 0;
     width: 100%;
     text-align: center;
     * {
       color: ${Color.blue};
       font-size: ${FontSize.md};
+    }
+    button, a {
+      width:100%;
+      height:5rem;
+      background-color:transparent
+      border: 0;
+      display: flex;
+      align-items: center
+      justify-content: center;
+      text-align: center;
+      outline: 0;
     }
   `,
 
@@ -104,6 +123,11 @@ const App = styled.div`
     font-size: ${FontSize.lg};
     color: ${Color.black};
     text-align: center;    
+  `,
+  LabelSmall = styled.h4`
+    font-size: ${FontSize.md};
+    color: ${Color.black};
+    text-align: center;    
   `;
 
-export {App, Input, Label, Button, TextBox, TextBoxWarning, TitleTop, Color, Gutter};
+export {App, Input, Label, LabelSmall, Button, TextBox, Radius, TextBoxWarning, TitleTop, Color, Gutter};

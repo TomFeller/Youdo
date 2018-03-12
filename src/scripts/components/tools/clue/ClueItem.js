@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom';
 import classNames from 'classnames';
+import {VBox, HBox} from 'react-stylesheet';
 import DataStore from 'flux/stores/DataStore.js';
-import {Color, Gutter, TitleTop, Label, TextBoxWarning} from '../../../components/styles/MainStyle.js'
+import {Color, Gutter, TitleTop, TextBox, TextBoxWarning} from '../../../components/styles/MainStyle.js'
 
 class ClueItem extends React.Component {
   render() {
@@ -18,9 +19,14 @@ class ClueItem extends React.Component {
         <TitleTop>{clue.title.rendered}</TitleTop>
         <div className='clueItem-content'>
           <div style={clueContent} dangerouslySetInnerHTML={{__html: clue.content.rendered}}/>
-          <TextBoxWarning style={{marginTop: '10px'}}>
-            <Link to={{pathname: '/tools', isTimerRunning: true}}>חזרה</Link>
+          <HBox>
+          <TextBoxWarning style={{marginLeft: Gutter.sm}}>
+            <Link to={{pathname: '/clue', isTimerRunning: true}}>רמז נוסף</Link>
           </TextBoxWarning>
+          <TextBox style={{marginRight: Gutter.sm}}>
+            <Link to={{pathname: '/tools', isTimerRunning: true}}>המשך</Link>
+          </TextBox>
+          </HBox>
         </div>
       </div>
     )
