@@ -29,6 +29,7 @@ class Timer extends React.Component {
           <div className='time' style={{borderLeft: '1px solid', padding:'0 .5rem'}}>{this.state.time}</div>
           <span style={{padding:'0 .5rem'}}>o</span>
         </HBox>
+        {localStorage.clue > 0 && <div className='clues'>מספר רמזים:  {localStorage.clue}</div>}
       </div>
     );
   }

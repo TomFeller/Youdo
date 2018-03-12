@@ -1,28 +1,24 @@
-import {render}           from 'react-dom';
+import {render}               from 'react-dom';
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
+import {App}                  from 'components/styles/MainStyle.js';
+import Clue                   from 'components/tools/Clue.js';
+import ContactList            from 'components/tools/Contact.js';
+import ContactListRightAnswer from 'components/tools/contactList/ContactListRightAnswer.js';
+import ContactListWrongAnswer from 'components/tools/contactList/ContactListWrongAnswer.js';
+import DataActions            from 'flux/actions/DataActions.js';
+import FinalScore             from 'components/FinalScore.js';
+import GeneralSettings        from 'components/GeneralSettings.js';
+import Header                 from 'components/Header.js';
+import Home                   from 'components/Home.js';
+import Police                 from 'components/tools/Police.js';
+import PoliceCorrectAnswer    from 'components/tools/police/PoliceCorrectAnswer.js';
+import PoliceWrongAnswer      from 'components/tools/police/PoliceWrongAnswer.js';
+import Timer                  from 'components/tools/Timer.js';
+import Tools                  from 'components/Tools.js';
 
-import DataActions        from 'flux/actions/DataActions.js';
-import GeneralSettings               from 'components/GeneralSettings.js';
-import Header               from 'components/Header.js';
-import Home               from 'components/Home.js';
-import Tools              from 'components/Tools.js';
-import FinalScore         from 'components/FinalScore.js';
-import Clue               from 'components/tools/Clue.js';
-import ContactList        from 'components/tools/Contact.js';
-import ContactListRightAnswer        from 'components/tools/contactList/ContactListRightAnswer.js';
-import ContactListWrongAnswer        from 'components/tools/contactList/ContactListWrongAnswer.js';
-import Timer              from 'components/tools/Timer.js';
-import Police             from 'components/tools/Police.js';
-import PoliceCorrectAnswer from 'components/tools/police/PoliceCorrectAnswer.js';
-import PoliceWrongAnswer from 'components/tools/police/PoliceWrongAnswer.js';
 
-import {App} from 'components/styles/MainStyle.js';
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom';
+
 
 class AppInitializer {
 

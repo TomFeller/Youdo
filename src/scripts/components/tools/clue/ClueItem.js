@@ -5,8 +5,17 @@ import DataStore from 'flux/stores/DataStore.js';
 import {Color, Gutter, TitleTop, TextBox, TextBoxWarning} from '../../../components/styles/MainStyle.js'
 
 class ClueItem extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+
+  }
+
+  componentDidMount() {
     localStorage.clue++;
+  }
+
+  render() {
+
     const {id} = this.props,
       clue = DataStore.getPostBySlug('clue-' + id);
 
@@ -20,12 +29,12 @@ class ClueItem extends React.Component {
         <div className='clueItem-content'>
           <div style={clueContent} dangerouslySetInnerHTML={{__html: clue.content.rendered}}/>
           <HBox>
-          <TextBoxWarning style={{marginLeft: Gutter.sm}}>
-            <Link to={{pathname: '/clue', isTimerRunning: true}}>רמז נוסף</Link>
-          </TextBoxWarning>
-          <TextBox style={{marginRight: Gutter.sm}}>
-            <Link to={{pathname: '/tools', isTimerRunning: true}}>המשך</Link>
-          </TextBox>
+            <TextBoxWarning style={{marginLeft: Gutter.sm}}>
+              <Link to={{pathname: '/clue', anotherClue: true}}>רמז נוסף</Link>
+            </TextBoxWarning>
+            <TextBox style={{marginRight: Gutter.sm}}>
+              <Link to={{pathname: '/tools', isTimerRunning: true}}>המשך</Link>
+            </TextBox>
           </HBox>
         </div>
       </div>

@@ -10,8 +10,9 @@ class Clue extends React.Component {
     this.submitNumberInput = this.submitNumberInput.bind(this);
     this.state = ({
       number: '',
-      isValid: false
+      isValid: false,
     });
+    this.bla = this.bla.bind(this);
   }
 
   submitNumberInput() {
@@ -27,10 +28,22 @@ class Clue extends React.Component {
     });
   }
 
+  bla() {
+    this.setState({
+      isValid: false
+    });
+    this.props.location.anotherClue = false;
+  }
+
   render() {
+    if (this.props.location.anotherClue && this.state.isValid) {
+      console.log('93');
+      this.bla();
+    };
     let postData = DataStore.getPostBySlug('clue');
 
     if (this.state.isValid == true) {
+
       return (
         <ClueItem id={this.state.number}/>
       )
