@@ -4,18 +4,17 @@ import styled from 'styled-components';
 const Color = {
   white: '#fff',
   black: '#000',
-  background: '#fff498',
-  red: 'red',
-  yellow: '#ffca48',
-  blue: '#5492bc',
-  orange: '#e8643e',
+  background: '#fff4b0',
+  yellow: '#fec854',
+  blue: '#5693b9',
+  orange: '#e66444',
   gray: '#e8e8e8',
 };
 
 const FontSize = {
-  sm: '1.2rem',
-  md: '1.6rem',
-  lg: '2rem'
+  sm: '1.5rem',
+  md: '2rem',
+  lg: '3rem'
 };
 const Gutter = {
   sm: '1rem',
@@ -32,6 +31,9 @@ const App = styled.div`
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
+    * {
+      font-family: 'Alef';
+    }
   `,
 
   Input = styled.div`
@@ -49,20 +51,6 @@ const App = styled.div`
         border: .1rem solid #000;
       }
     }
-  `,
-
-  Button = styled.div`
-  width: 100%;
-  button, a, input {
-    padding: 0 ${Gutter.def};
-    border-radius: ${Radius};
-    height: 3rem;
-    background-color: red;
-    width: 100%;
-    display: block;
-    text-align: center;
-    line-height: 1.8rem;
-  }
   `,
 
   TitleTop = styled.div`
@@ -88,12 +76,13 @@ const App = styled.div`
     button, a {
       width:100%;
       height:5rem;
-      background-color:transparent
+      background-color: transparent
       border: 0;
       display: flex;
       align-items: center
       justify-content: center;
       text-align: center;
+      text-decoration: none;
     }
   `,
 
@@ -130,4 +119,4 @@ const App = styled.div`
     text-align: center;    
   `;
 
-export {App, Input, Label, LabelSmall, Button, TextBox, Radius, TextBoxWarning, TitleTop, Color, Gutter};
+export {App, Input, Label, LabelSmall, TextBox, Radius, TextBoxWarning, TitleTop, Color, FontSize, Gutter};

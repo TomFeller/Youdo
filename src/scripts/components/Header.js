@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import {Gutter} from '../components/styles/MainStyle.js';
 import Timer              from './tools/Timer.js';
 import {VBox, HBox} from 'react-stylesheet';
@@ -8,7 +9,7 @@ class Header extends React.Component {
     return (
       <header id="site-header" className="site-header" style={header}>
         <HBox justifyContent='space-between'>
-          <div>חזרה</div>
+          <Link to='/tools'>חזרה</Link>
           <Timer />
         </HBox>
       </header>
