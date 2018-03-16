@@ -16,6 +16,7 @@ class PoliceInsertName extends React.Component {
   }
 
   checkAnswer() {
+    console.log(localStorage.warningVerified);
     this.setState({
       answer: this.textInput.value,
       isCorrect: this.textInput.value === this.props.nameAnswer ? 1 : 0
@@ -26,10 +27,14 @@ class PoliceInsertName extends React.Component {
     const {isCorrect, answer} = this.state;
     let url = (isCorrect === 1) ? '/policecorrectanswer' : '/policewronganswer';
     return (
-      <div style={{padding: 0 }}>
+      <div style={{padding: 0}}>
         <div className='guessName'>
-          <WarningMessage content='תשובה לא נכונה תוסיף 3 דקות לזמן הסופי'
-                          direction='bottom'/>
+          <WarningMessage content='זכרו: תשובה לא נכונה תוסיף 3 דקות לזמן הסופי'
+                          direction={'top'}
+                          top='0rem'
+                          left='2rem'
+                          width='15rem'
+                          name='police'/>
           <div>
             <Label>שם הנעדר:</Label>
             <Input>

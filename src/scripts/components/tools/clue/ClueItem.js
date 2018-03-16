@@ -5,17 +5,12 @@ import DataStore from 'flux/stores/DataStore.js';
 import {Color, Gutter, FontSize, TitleTop, TextBox, TextBoxWarning} from '../../../components/styles/MainStyle.js'
 
 class ClueItem extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   componentDidMount() {
     localStorage.clue++;
   }
 
   render() {
-
     const {id} = this.props,
       clue = DataStore.getPostBySlug('clue-' + id);
 

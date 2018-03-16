@@ -76,9 +76,10 @@ const App = styled.div`
     border-radius: ${Radius};
     width: 100%;
     text-align: center;
+    font-size: ${FontSize.md};
     * {
       color: #fff;
-      font-size: ${FontSize.md};
+      
     }
     button, a {
       width: 100%;
@@ -91,6 +92,7 @@ const App = styled.div`
       text-align: center;
       text-decoration: none;
       outline: 0;
+      font-size: ${FontSize.md};
     }
   `,
 
@@ -114,6 +116,7 @@ const App = styled.div`
       text-align: center;
       outline: 0;
       text-decoration: none;
+      font-size: ${FontSize.md};
     }
   `,
 
@@ -125,10 +128,12 @@ const App = styled.div`
   `,
   LabelSmall = styled.h4`
     font-size: ${FontSize.md};
+    font-weight: 100;
     color: ${Color.black};
     text-align: center;    
     white-space: nowrap;
     margin: 0;
+   
   `;
 
 export {App, Input, Label, LabelSmall, PageGutter, TextBox, Radius, TextBoxWarning, TitleTop, Color, FontSize, Gutter};

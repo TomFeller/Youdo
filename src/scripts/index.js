@@ -17,9 +17,6 @@ import Timer                  from 'components/tools/Timer.js';
 import Tools                  from 'components/Tools.js';
 
 
-
-
-
 class AppInitializer {
 
   templates = {
@@ -31,7 +28,7 @@ class AppInitializer {
     'contactlistrightanswer': ContactListRightAnswer,
     'contactlistwronganswer': ContactListWrongAnswer,
     'police': Police,
-    'policecorrectanswer':PoliceCorrectAnswer,
+    'policecorrectanswer': PoliceCorrectAnswer,
     'policewronganswer': PoliceWrongAnswer,
     'finalscore': FinalScore
   };
@@ -48,6 +45,7 @@ class AppInitializer {
       )
     });
   }
+
   // TODO: check about getting all posts and pages. Right now, to add new page route you need to add page to show it and the content is in posts section.
   // TODO: Unlimit the number of pages (now its only 10)
   run() {
@@ -67,7 +65,7 @@ class AppInitializer {
             </Switch>
           </App>
         </Router>
-        ,document.getElementById('app')
+        , document.getElementById('app')
       );
     });
   }

@@ -1,5 +1,15 @@
-import {VBox, HBox} from 'react-stylesheet';
-import {Color, Gutter, LabelSmall, Label, TextBox, TextBoxWarning} from '../components/styles/MainStyle.js'
+import {Element, VBox, HBox} from 'react-stylesheet';
+import {
+  Color,
+  Gutter,
+  FontSize,
+  Radius,
+  LabelSmall,
+  Label,
+  TextBox,
+  TextBoxWarning
+} from '../components/styles/MainStyle.js'
+import Logo from './styles/Logo.js';
 
 class FinalScore extends React.Component {
   render() {
@@ -11,39 +21,56 @@ class FinalScore extends React.Component {
 
     return (
       <div id='finalScore'
-           style={{padding: Gutter.def}}
-      >
+           style={{padding: Gutter.def}}>
         <VBox alignItems='center'>
-          <Label>כל הכבוד קבוצת <span style={{color: '#ff0000'}}>{groupName}</span></Label>
-          <Label>פיצחתם את התעלומה!</Label>
+          <Label style={{marginBottom: '1rem'}}>כל הכבוד קבוצת</Label>
+          <div style={groupNameBox}>
+            {groupName}
+          </div>
+          <Label style={{marginBottom: '1rem'}}>פיצחתם את התעלומה!</Label>
           <div style={detailsBox}>
-            <Label>זמן המשחק שלכם הוא </Label>
+            <LabelSmall>זמן המשחק שלכם הוא </LabelSmall>
             <TextBoxWarning>
               <button>{this.props.location.gameMinutes} דקות ו- {seconds} שניות</button>
             </TextBoxWarning>
-            <LabelSmall>{clues} רמזים = {clues * 5} דקות</LabelSmall>
-            <LabelSmall>2 תשובות לא נכונות * 3 דקות</LabelSmall>
-            <LabelSmall>זמן משוקלל</LabelSmall>
+            <Element style={{margin:`${Gutter.def} 0`}}>
+              <LabelSmall>{clues} רמזים = {clues * 5} דקות</LabelSmall>
+              <LabelSmall>2 תשובות לא נכונות * 3 דקות</LabelSmall>
+              <LabelSmall>זמן משוקלל</LabelSmall>
+            </Element>
             <TextBoxWarning>
               <button>  {totalMinutes} דקות ו-{seconds} שניות</button>
             </TextBoxWarning>
           </div>
-          <TextBox>
-          <button>בקרו באתר שלנו</button>
+          <TextBox style={{marginTop: Gutter.def}}>
+            <button>בקרו באתר שלנו</button>
           </TextBox>
+          <Logo/>
         </VBox>
       </div>
     )
   }
 }
 
-export default FinalScore;
+const groupNameBox = {
+  backgroundColor: Color.gray,
+  height: '5rem',
+  width: '100%',
+  borderRadius: Radius,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: FontSize.lg,
+  marginBottom: Gutter.def
+};
 
 const detailsBox = {
   width: '100%',
   borderTop: '.3rem solid ' + Color.blue,
   borderBottom: '.3rem solid ' + Color.blue,
-  padding: `${Gutter.def} ${Gutter.lg}`,
-  marginBottom: Gutter.lg,
-  overflow: 'hidden'
-}
+  padding: `${Gutter.def} ${Gutter.def} 3rem`,
+  marginBottom: Gutter.def,
+  overflow: 'hidden',
+};
+
+export default FinalScore;

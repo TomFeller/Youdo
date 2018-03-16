@@ -12,7 +12,8 @@ class Clue extends React.Component {
       number: '',
       isValid: false,
     });
-    this.bla = this.bla.bind(this);
+    this.isAnother = this.isAnother.bind(this);
+    localStorage.clueVerified = false;
   }
 
   submitNumberInput() {
@@ -28,7 +29,7 @@ class Clue extends React.Component {
     });
   }
 
-  bla() {
+  isAnother() {
     this.setState({
       isValid: false
     });
@@ -37,14 +38,11 @@ class Clue extends React.Component {
 
   render() {
     if (this.props.location.anotherClue && this.state.isValid) {
-      console.log('93');
-      this.bla();
+      this.isAnother();
     }
-    ;
     let postData = DataStore.getPostBySlug('clue');
 
-    if (this.state.isValid == true) {
-
+    if (this.state.isValid == true && localStorage.clueVerified == 'true') {
       return (
         <ClueItem id={this.state.number}/>
       )
@@ -54,7 +52,9 @@ class Clue extends React.Component {
           <WarningMessage content='זכרו: כל רמז יוסיף לכם 5 דקות לזמן המשחק הסופי.'
                           tag={'clue-inner'}
                           direction={'top'}
-                          top= '5rem'/>
+                          width={'14rem'}
+                          top='2rem'
+                          left='2rem'/>
           <Label className='text-content' dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}}/>
           <Input>
             <input type="text"

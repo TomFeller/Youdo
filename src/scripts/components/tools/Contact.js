@@ -60,10 +60,11 @@ class ContactList extends React.Component {
               })
             }
           </div>
-          <div>
+          <div style={lettersWrapper}>
             {letters.map((letter, i) => {
               return (
-                <div style={letterItem}>{letter}</div>
+                <div key={i}
+                     style={letterItem}>{letter}</div>
               )
             })}
           </div>
@@ -84,6 +85,9 @@ const listItem = {
   },
   letterItem = {
     color: Color.blue
+  },
+  lettersWrapper = {
+    position: 'fixed',left: Gutter.def
   };
 export default ContactList;
 

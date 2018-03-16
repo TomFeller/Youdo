@@ -31,7 +31,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state.isActive);
     let pageData = DataStore.getPageBySlug('home');
     localStorage.clue = 0;
     localStorage.gameMinutes = '00';
