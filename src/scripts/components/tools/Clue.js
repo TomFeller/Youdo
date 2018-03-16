@@ -39,7 +39,8 @@ class Clue extends React.Component {
     if (this.props.location.anotherClue && this.state.isValid) {
       console.log('93');
       this.bla();
-    };
+    }
+    ;
     let postData = DataStore.getPostBySlug('clue');
 
     if (this.state.isValid == true) {
@@ -52,7 +53,8 @@ class Clue extends React.Component {
         <div id='clue' className='clue' style={{padding: `0 ${Gutter.lg}`}}>
           <WarningMessage content='זכרו: כל רמז יוסיף לכם 5 דקות לזמן המשחק הסופי.'
                           tag={'clue-inner'}
-                          direction={'bottom'}/>
+                          direction={'top'}
+                          top= '5rem'/>
           <Label className='text-content' dangerouslySetInnerHTML={{__html: postData.excerpt.rendered}}/>
           <Input>
             <input type="text"

@@ -31,6 +31,7 @@ class Home extends React.Component {
   }
 
   render() {
+    console.log(this.state.isActive);
     let pageData = DataStore.getPageBySlug('home');
     localStorage.clue = 0;
     localStorage.gameMinutes = '00';
@@ -38,13 +39,13 @@ class Home extends React.Component {
     localStorage.groupname = this.state.groupName;
     return (
       <VBox justifyContent='space-between'
-            height='100vh'
-            style={{padding: PageGutter}}
+            style={{padding: PageGutter, minHeight: '100vh'}}
             id='home'>
         <TitleTop style={{
-          height: this.state.isActive ? '30vh' : '85vh',
+          height: this.state.isActive ? '50vh' : '85vh',
           marginBottom: '0',
-          transition: '1s height'
+          transition: '.6s height',
+          position: 'relative'
         }}>
           <h1 style={{
             textAlign: 'center',
@@ -61,8 +62,8 @@ class Home extends React.Component {
           </HBox>
           }
         </TitleTop>
-        {this.state.isActive &&
-        <Element>
+
+        <Element style={this.state.isActive ? show : hide}>
           <Label>שם הקבוצה {this.state.groupName}</Label>
           <Input>
             <input id='groupName'
@@ -79,10 +80,9 @@ class Home extends React.Component {
             </Link>
           </TextBox>
         </Element>
-        }
-        {this.state.isActive &&
-        <Logo />
-        }
+        <div style={this.state.isActive ? show : hide}>
+          <Logo/>
+        </div>
       </VBox>
     );
   }
@@ -95,8 +95,9 @@ const openningButton = {
   backgroundColor: Color.orange,
   margin: '0 auto',
   position: 'absolute',
-  bottom: '3rem',
-  overflow: 'visible'
+  bottom: '-8rem',
+  overflow: 'visible',
+  zIndex: '2'
 };
 
 const openningButtonLine = {
@@ -105,6 +106,15 @@ const openningButtonLine = {
   height: '5rem',
   backgroundColor: Color.orange,
   top: '-4rem'
-}
+};
+
+const hide = {
+  opacity: '0',
+  transition: 'opacity 1s'
+};
+
+const show = {
+  opacity: '1'
+};
 
 export default Home;

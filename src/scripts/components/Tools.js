@@ -67,7 +67,7 @@ class Tools extends React.Component {
                     {post.slug == 'clue' &&
                     <WarningMessage content='מתקשים? 5 דקות לזמן המשחק'
                                     tag={post.slug}
-                                    direction={'top'}/>}
+                                    direction={'bottom'}/>}
                     <Link to={this.state.isTimerRunning ? post.slug : 'tools'}>
                       <HBox justifyContent='center' alignItems='center'>
                         <img src={iconUrl} style={toolIcon}/>
