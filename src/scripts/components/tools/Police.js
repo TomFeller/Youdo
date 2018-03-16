@@ -1,5 +1,5 @@
 import {VBox, HBox} from 'react-stylesheet';
-import {Label, Input, TextBox} from '../styles/MainStyle.js';
+import {Label, Input, Gutter, TextBox, PageGutter} from '../styles/MainStyle.js';
 import DataStore from '../../flux/stores/DataStore.js';
 import PoliceInsertName from './police/PoliceInsertName.js';
 
@@ -41,39 +41,57 @@ class Police extends React.Component {
   render() {
     const {isValid, userInput, correctAnswer} = this.state;
     const policeData = DataStore.getPostBySlug('police');
-    let policeIconUrl = policeData.better_featured_image != null && policeData.better_featured_image.media_details.sizes.thumbnail.source_url;
+    let policeIconUrl = 'http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/police-logo.png';
     if (isValid == 1) {
       return (
-        <div id='police' className='police'>
-          <h2>{localStorage.groupname}</h2>
+        <VBox justifyContent='space-between'
+              id='police'
+              className='police'
+              style={{
+                padding: `${Gutter.lg}`,
+                height: '100vh'
+              }}>
           <HBox justifyContent='center'>
             <img src={policeIconUrl}/>
           </HBox>
           <PoliceInsertName password={userInput}
                             nameAnswer={correctAnswer}
-                            policeIcon={policeIconUrl}/>
-        </div>
+                            policeIcon={policeIconUrl}
+          />
+          <HBox justifyContent='center'>
+            <img src='http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/icon-face.png'
+                 style={{display: 'block', height: '15rem'}}/>
+          </HBox>
+        </VBox>
       );
     } else {
       return (
-        <div id='police' className='police'>
+        <VBox justifyContent='space-between'
+              id='police'
+              className='police'
+              style={{
+                padding: `${Gutter.lg}`,
+                height: '100vh'
+              }}>
           <HBox justifyContent='center'>
             <img src={policeIconUrl}/>
           </HBox>
-          <h2>{localStorage.groupname}</h2>
-          <Label>הכנס סיסמא:</Label>
-          <Input>
-            <input type='password'
-                   ref={(input) => this.textInput = input}/>
-          </Input>
-          <span>{isValid == 0 ? 'סיסמא שגוייה' : ''}</span>
-          <TextBox>
-            <button onClick={this.submitNumberInput}>שלח</button>
-          </TextBox>
+          <div>
+            <Label>הכנס סיסמא:</Label>
+            <Input>
+              <input type='password'
+                     ref={(input) => this.textInput = input}/>
+            </Input>
+            <span>{isValid == 0 ? 'סיסמא שגוייה' : ''}</span>
+            <TextBox>
+              <button onClick={this.submitNumberInput}>שלח</button>
+            </TextBox>
+          </div>
           <HBox justifyContent='center'>
-            <img src={policeIconUrl}/>
+            <img src='http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/icon-face.png'
+                 style={{display: 'block', height: '15rem'}}/>
           </HBox>
-        </div>
+        </VBox>
       );
     }
   }

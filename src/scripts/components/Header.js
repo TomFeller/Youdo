@@ -9,7 +9,9 @@ class Header extends React.Component {
     return (
       <header id="site-header" className="site-header" style={header}>
         <HBox justifyContent='space-between'>
-          <Link to='/tools'>חזרה</Link>
+          <Link to='/tools'>
+            <img src='http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/back-btn.png' />
+          </Link>
           <Timer />
         </HBox>
       </header>

@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 import {VBox, HBox} from 'react-stylesheet';
 import DataStore from 'flux/stores/DataStore.js';
-import {Color, Gutter, TitleTop, TextBox, TextBoxWarning} from '../../../components/styles/MainStyle.js'
+import {Color, Gutter, FontSize, TitleTop, TextBox, TextBoxWarning} from '../../../components/styles/MainStyle.js'
 
 class ClueItem extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class ClueItem extends React.Component {
              'clueItem',
              'clueItem-' + {id})}
            style={clueItem}>
-        <TitleTop>{clue.title.rendered}</TitleTop>
+        <TitleTop style={{marginBottom: '4rem'}}>{clue.title.rendered}</TitleTop>
         <div className='clueItem-content'>
           <div style={clueContent} dangerouslySetInnerHTML={{__html: clue.content.rendered}}/>
           <HBox>
@@ -54,7 +54,8 @@ const
     borderBottom: '.3rem solid ' + Color.blue,
     padding: `${Gutter.def} 0`,
     marginBottom: Gutter.lg,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    fontSize: FontSize.lg
   };
 
 export default ClueItem;

@@ -1,7 +1,7 @@
 import DataStore from 'flux/stores/DataStore.js';
 import ClueItem from './clue/ClueItem.js';
 import WarningMessage from './WarningMessage.js';
-import {Label, Input, TextBox} from '../../components/styles/MainStyle.js'
+import {Label, Input, TextBox, Gutter} from '../../components/styles/MainStyle.js'
 
 class Clue extends React.Component {
 
@@ -49,7 +49,7 @@ class Clue extends React.Component {
       )
     } else {
       return (
-        <div id='clue' className='clue'>
+        <div id='clue' className='clue' style={{padding: `0 ${Gutter.lg}`}}>
           <WarningMessage content='זכרו: כל רמז יוסיף לכם 5 דקות לזמן המשחק הסופי.'
                           tag={'clue-inner'}
                           direction={'bottom'}/>

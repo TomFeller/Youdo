@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import {Label, Input, TextBox} from '../../styles/MainStyle.js';
+import {Label, Input, PageGutter, TextBox} from '../../styles/MainStyle.js';
 
 
 import WarningMessage from '../WarningMessage.js';
@@ -26,7 +26,7 @@ class PoliceInsertName extends React.Component {
     const {isCorrect, answer} = this.state;
     let url = (isCorrect === 1) ? '/policecorrectanswer' : '/policewronganswer';
     return (
-      <div>
+      <div style={{padding: 0 }}>
         <div className='guessName'>
           <WarningMessage content='תשובה לא נכונה תוסיף 3 דקות לזמן הסופי'
                           direction='bottom'/>

@@ -1,5 +1,5 @@
 import {VBox, HBox} from 'react-stylesheet';
-import {Radius} from '../../components/styles/MainStyle.js';
+import {Radius, FontSize} from '../../components/styles/MainStyle.js';
 
 class Timer extends React.Component {
   constructor(props) {
@@ -26,10 +26,15 @@ class Timer extends React.Component {
     return (
       <div id='Timer' className='timer'>
         <HBox style={timerWrapper}>
-          <div className='time' style={{borderLeft: '1px solid', padding:'0 .5rem'}}>{this.state.time}</div>
-          <span style={{padding:'0 .5rem'}}>o</span>
+          <div className='time'
+               style={{
+                 borderLeft: '1px solid',
+                 padding: '0 .5rem',
+               }}>
+            {this.state.time}</div>
+          <span style={{padding: '0 .5rem'}}>o</span>
         </HBox>
-        {localStorage.clue > 0 && <div className='clues'>מספר רמזים:  {localStorage.clue}</div>}
+        {localStorage.clue > 0 && <div className='clues'>מספר רמזים: {localStorage.clue}</div>}
       </div>
     );
   }
@@ -40,5 +45,6 @@ export default Timer;
 
 const timerWrapper = {
   border: '1px solid',
-  borderRadius: Radius
+  borderRadius: Radius,
+  fontSize: FontSize.sm
 };

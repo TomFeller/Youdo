@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import DataStore from '../../../flux/stores/DataStore.js'
-import {TextBox, TextBoxWarning} from '../../styles/MainStyle.js';
+import {TextBox, PageGutter, TextBoxWarning} from '../../styles/MainStyle.js';
 
 class PoliceWrongAnswer extends React.Component {
   render() {
@@ -9,7 +9,8 @@ class PoliceWrongAnswer extends React.Component {
       answer = this.props.location.userInput;
 
     return (
-      <div id='wrongAnswer'>
+      <div id='wrongAnswer'
+           style={{padding: PageGutter}}>
         {answer}
         <TextBox>
           <div dangerouslySetInnerHTML={{__html: pageData.content.rendered}}/>

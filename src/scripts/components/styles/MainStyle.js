@@ -13,7 +13,7 @@ const Color = {
 
 const FontSize = {
   sm: '1.5rem',
-  md: '2rem',
+  md: '1.8rem',
   lg: '3rem'
 };
 const Gutter = {
@@ -21,18 +21,22 @@ const Gutter = {
   def: '1.5rem',
   lg: '4rem'
 };
+const PageGutter = `0 ${Gutter.lg}`;
 
 const Radius = '1rem';
 
 const App = styled.div`
     background-color: ${Color.background};
-    padding: ${Gutter.def}
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
     * {
       font-family: 'Alef';
+    }
+    #tools {
+      padding: 3rem;
     }
   `,
 
@@ -57,12 +61,15 @@ const App = styled.div`
     background-color: ${Color.orange};
     color: ${Color.white};
     padding: 3rem 0;
-    margin: -1.5rem 0 7rem;
+    margin: 0 0 7rem;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    h1 {
+      font-size: ${FontSize.lg};
+    }
   `,
   TextBox = styled.div`
     background-color: ${Color.blue};
@@ -74,8 +81,8 @@ const App = styled.div`
       font-size: ${FontSize.md};
     }
     button, a {
-      width:100%;
-      height:5rem;
+      width: 100%;
+      height: 5rem;
       background-color: transparent
       border: 0;
       display: flex;
@@ -83,6 +90,7 @@ const App = styled.div`
       justify-content: center;
       text-align: center;
       text-decoration: none;
+      outline: 0;
     }
   `,
 
@@ -105,18 +113,22 @@ const App = styled.div`
       justify-content: center;
       text-align: center;
       outline: 0;
+      text-decoration: none;
     }
   `,
 
   Label = styled.h3`
     font-size: ${FontSize.lg};
     color: ${Color.black};
-    text-align: center;    
+    text-align: center;
+    margin-top: 0;
   `,
   LabelSmall = styled.h4`
     font-size: ${FontSize.md};
     color: ${Color.black};
     text-align: center;    
+    white-space: nowrap;
+    margin: 0;
   `;
 
-export {App, Input, Label, LabelSmall, TextBox, Radius, TextBoxWarning, TitleTop, Color, FontSize, Gutter};
+export {App, Input, Label, LabelSmall, PageGutter, TextBox, Radius, TextBoxWarning, TitleTop, Color, FontSize, Gutter};

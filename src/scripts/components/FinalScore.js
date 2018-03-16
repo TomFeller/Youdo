@@ -10,7 +10,9 @@ class FinalScore extends React.Component {
       totalMinutes = parseInt(minutes) + parseInt(clues * 5);
 
     return (
-      <div id='finalScore' style={{padding: Gutter.lg}}>
+      <div id='finalScore'
+           style={{padding: Gutter.def}}
+      >
         <VBox alignItems='center'>
           <Label>כל הכבוד קבוצת <span style={{color: '#ff0000'}}>{groupName}</span></Label>
           <Label>פיצחתם את התעלומה!</Label>
@@ -21,7 +23,7 @@ class FinalScore extends React.Component {
             </TextBoxWarning>
             <LabelSmall>{clues} רמזים = {clues * 5} דקות</LabelSmall>
             <LabelSmall>2 תשובות לא נכונות * 3 דקות</LabelSmall>
-            <Label>זמן משוקלל</Label>
+            <LabelSmall>זמן משוקלל</LabelSmall>
             <TextBoxWarning>
               <button>  {totalMinutes} דקות ו-{seconds} שניות</button>
             </TextBoxWarning>

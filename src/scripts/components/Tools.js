@@ -49,7 +49,7 @@ class Tools extends React.Component {
                onClick={localStorage.isTimerRunning && this.startTimer}
                style={tool}>
             <HBox justifyContent='center' alignItems='center'>
-              <img style={{width:'width:100%;'}} src={timerData.better_featured_image.media_details.sizes.thumbnail.source_url} />
+              <img src={timerData.better_featured_image.media_details.sizes.thumbnail.source_url} style={toolIcon} />
             </HBox>
           </div>
           {
@@ -70,7 +70,7 @@ class Tools extends React.Component {
                                     direction={'top'}/>}
                     <Link to={this.state.isTimerRunning ? post.slug : 'tools'}>
                       <HBox justifyContent='center' alignItems='center'>
-                        <img src={iconUrl}/>
+                        <img src={iconUrl} style={toolIcon}/>
                       </HBox>
                     </Link>
                   </div>
@@ -88,11 +88,14 @@ const toolDisable = {
   opacity: 0.4
 };
 
-
 const tool = {
   width: '50%',
   position: 'relative',
-  padding: '1rem'
+  padding: '1.3rem'
+};
+
+const toolIcon = {
+  width: '100%'
 };
 
 export default Tools;

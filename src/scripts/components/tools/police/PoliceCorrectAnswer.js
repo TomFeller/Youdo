@@ -1,13 +1,14 @@
 import {Link} from 'react-router-dom';
 import {VBox, HBox} from 'react-stylesheet';
-import {Label, TextBox} from '../../styles/MainStyle.js';
+import {Label, TextBox, Gutter} from '../../styles/MainStyle.js';
 
 class PoliceCorrectAnswer extends React.Component {
   render() {
     const answer = this.props.location.userInput;
 
     return (
-      <div id='correctAnswer'>
+      <div id='correctAnswer'
+           style={{padding: `0 ${Gutter.def}`}}>
         <HBox justifyContent='center'>
           <img src={this.props.location.policeIcon}/>
         </HBox>

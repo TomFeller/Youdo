@@ -36,7 +36,7 @@ class ContactList extends React.Component {
     console.log(this.state.contactList);
     this.state.contactList.sort(this.compare);
     return (
-      <div>
+      <div style={{padding:`${Gutter.def}`}}>
         <h1>{pageData.title.rendered}</h1>
         <HBox>
           <div className='contact-list' style={{width: '100%', marginLeft: Gutter.def}}>
