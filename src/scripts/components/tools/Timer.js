@@ -26,15 +26,17 @@ class Timer extends React.Component {
     return (
       <div id='Timer' className='timer'>
         <HBox style={timerWrapper}>
-          <div className='time'
-               style={{
-                 borderLeft: '1px solid',
-                 padding: '0 .5rem',
-               }}>
-            {this.state.time}</div>
-          <span style={{padding: '0 .5rem'}}>o</span>
+          <VBox className='time'
+                style={{
+                  borderLeft: '1px solid',
+                  padding: '.3rem .5rem',
+                }}>
+            {this.state.time}
+          </VBox>
+          <VBox justifyContent='center' style={{padding: '0 .5rem'}}>
+            <img width='15rem' src='http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/clock.png'/>
+          </VBox>
         </HBox>
-        {localStorage.clue > 0 && <div className='clues'>מספר רמזים: {localStorage.clue}</div>}
       </div>
     );
   }

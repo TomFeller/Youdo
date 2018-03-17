@@ -55,8 +55,8 @@ class Home extends React.Component {
           <HBox justifyContent='center'
                 alignItems='center'
                 onClick={this.startGame}
-                style={openningButton}>
-            <div style={openningButtonLine}></div>
+                style={openingButton}>
+            <div style={openingButtonLine}></div>
             <img src='http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/arrows.png'
                  width='12px'/>
           </HBox>
@@ -88,7 +88,7 @@ class Home extends React.Component {
   }
 }
 
-const openningButton = {
+const openingButton = {
     width: '5rem',
     height: '5rem',
     borderRadius: '50%',
@@ -103,8 +103,9 @@ const openningButton = {
     padding: PageGutter,
     minHeight: '100vh',
     backgroundColor: Color.background,
+    zIndex: '10'
   },
-  openningButtonLine = {
+  openingButtonLine = {
     position: 'absolute',
     width: '.7rem',
     height: '5rem',

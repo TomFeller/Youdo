@@ -27,7 +27,8 @@ const header = {
   top: '0',
   right: '0',
   width: '100%',
-  padding: Gutter.def
+  padding: Gutter.def,
+  zIndex: '1'
 };
 
 const hide = {
