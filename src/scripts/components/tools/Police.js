@@ -107,7 +107,9 @@ const policeNumbersButtons = {
     height: '100vh',
     background: 'url("http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/callnumbers.png") no-repeat',
     backgroundSize: 'contain',
-    backgroundColor: '#1a8d8d'
+    backgroundPositionX: 'center',
+    backgroundColor: '#1a8d8d',
+    zIndex:'3'
   },
   submitButton = {
     width: '8rem',
@@ -116,11 +118,11 @@ const policeNumbersButtons = {
     borderRadius: '50%',
     position: 'absolute',
     bottom:'8rem',
-    left: '5.5rem',
+    left: '18%',
     opacity: '.5'
   },
   buttons = {
-    border:'.2rem solid #000',
+    border: '.2rem solid #000',
     position: 'absolute',
     height:'23.2%',
     width: '37%',
