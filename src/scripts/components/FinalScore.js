@@ -12,16 +12,22 @@ import {
 import Logo from './styles/Logo.js';
 
 class FinalScore extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+
   render() {
     const groupName = localStorage.groupname,
       minutes = this.props.location.gameMinutes,
       seconds = this.props.location.gameSeconds,
       clues = localStorage.clue,
-      totalMinutes = parseInt(minutes) + parseInt(clues * 5);
+      wrongAnswers = localStorage.policeGuess,
+      totalMinutes = parseInt(minutes) + parseInt(clues * 5) + parseInt(wrongAnswers * 3);
 
     return (
       <div id='finalScore'
-           style={{padding: Gutter.def}}>
+           style={finalScore}>
         <VBox alignItems='center'>
           <Label style={{marginBottom: '1rem'}}>כל הכבוד קבוצת</Label>
           <div style={groupNameBox}>
@@ -33,9 +39,9 @@ class FinalScore extends React.Component {
             <TextBoxWarning>
               <button>{this.props.location.gameMinutes} דקות ו- {seconds} שניות</button>
             </TextBoxWarning>
-            <Element style={{margin:`${Gutter.def} 0`}}>
+            <Element style={{margin: `${Gutter.def} 0`}}>
               <LabelSmall>{clues} רמזים = {clues * 5} דקות</LabelSmall>
-              <LabelSmall>2 תשובות לא נכונות * 3 דקות</LabelSmall>
+              <LabelSmall>{wrongAnswers} תשובות לא נכונות = {clues * 3} דקות </LabelSmall>
               <LabelSmall>זמן משוקלל</LabelSmall>
             </Element>
             <TextBoxWarning>
@@ -52,25 +58,31 @@ class FinalScore extends React.Component {
   }
 }
 
-const groupNameBox = {
-  backgroundColor: Color.gray,
-  height: '5rem',
-  width: '100%',
-  borderRadius: Radius,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontSize: FontSize.lg,
-  marginBottom: Gutter.def
-};
+const finalScore = {
+    padding: Gutter.def,
+    backgroundColor: Color.background,
+    zIndex:'3',
+    position: 'relative'
+  },
+  groupNameBox = {
+    backgroundColor: Color.gray,
+    height: '5rem',
+    width: '100%',
+    borderRadius: Radius,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: FontSize.lg,
+    marginBottom: Gutter.def
+  },
 
-const detailsBox = {
-  width: '100%',
-  borderTop: '.3rem solid ' + Color.blue,
-  borderBottom: '.3rem solid ' + Color.blue,
-  padding: `${Gutter.def} ${Gutter.def} 3rem`,
-  marginBottom: Gutter.def,
-  overflow: 'hidden',
-};
+  detailsBox = {
+    width: '100%',
+    borderTop: '.3rem solid ' + Color.blue,
+    borderBottom: '.3rem solid ' + Color.blue,
+    padding: `${Gutter.def} ${Gutter.def} 3rem`,
+    marginBottom: Gutter.def,
+    overflow: 'hidden',
+  };
 
 export default FinalScore;

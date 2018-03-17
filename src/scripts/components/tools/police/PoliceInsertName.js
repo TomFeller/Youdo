@@ -16,7 +16,6 @@ class PoliceInsertName extends React.Component {
   }
 
   checkAnswer() {
-    console.log(localStorage.warningVerified);
     this.setState({
       answer: this.textInput.value,
       isCorrect: this.textInput.value === this.props.nameAnswer ? 1 : 0

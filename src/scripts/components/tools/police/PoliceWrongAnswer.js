@@ -6,6 +6,7 @@ import DataStore from '../../../flux/stores/DataStore.js'
 
 class PoliceWrongAnswer extends React.Component {
   render() {
+    localStorage.policeGuess++;
     const
       pageData = DataStore.getPageBySlug('policewronganswer'),
       answer = this.props.location.userInput,

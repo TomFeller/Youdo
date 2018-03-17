@@ -20,8 +20,10 @@ class ClueItem extends React.Component {
              'clueItem',
              'clueItem-' + {id})}
            style={clueItem}>
-        <TitleTop style={{marginBottom: '4rem'}}>{clue.title.rendered}</TitleTop>
-        <div className='clueItem-content'>
+        <div style={titleCover}>
+          <TitleTop style={{marginBottom: '4rem'}}>{clue.title.rendered}</TitleTop>
+        </div>
+        <div style={{padding: `0 ${Gutter.lg}`}}>
           <div style={clueContent} dangerouslySetInnerHTML={{__html: clue.content.rendered}}/>
           <HBox>
             <TextBoxWarning style={{marginLeft: Gutter.sm}}>
@@ -38,16 +40,21 @@ class ClueItem extends React.Component {
 }
 
 const
+  titleCover = {
+    width: '100%',
+    backgroundColor: Color.background,
+    padding: `0 ${Gutter.lg}`,
+  },
   clueItem = {
     height: '100vh',
     color: Color.blue,
     fontSize: '2rem',
-    padding: '0 3rem'
+    zIndex: '3',
+    position: 'relative'
   },
   clueContent = {
     borderTop: '.3rem solid ' + Color.blue,
     borderBottom: '.3rem solid ' + Color.blue,
-    padding: `${Gutter.def} 0`,
     marginBottom: Gutter.lg,
     overflow: 'hidden',
     fontSize: FontSize.lg

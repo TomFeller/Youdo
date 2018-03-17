@@ -35,10 +35,11 @@ class Home extends React.Component {
     localStorage.clue = 0;
     localStorage.gameMinutes = '00';
     localStorage.gameSeconds = '00';
+    localStorage.policeGuess = '0';
     localStorage.groupname = this.state.groupName;
     return (
       <VBox justifyContent='space-between'
-            style={{padding: PageGutter, minHeight: '100vh'}}
+            style={home}
             id='home'>
         <TitleTop style={{
           height: this.state.isActive ? '50vh' : '85vh',
@@ -88,32 +89,34 @@ class Home extends React.Component {
 }
 
 const openningButton = {
-  width: '5rem',
-  height: '5rem',
-  borderRadius: '50%',
-  backgroundColor: Color.orange,
-  margin: '0 auto',
-  position: 'absolute',
-  bottom: '-8rem',
-  overflow: 'visible',
-  zIndex: '2'
-};
-
-const openningButtonLine = {
-  position: 'absolute',
-  width: '.7rem',
-  height: '5rem',
-  backgroundColor: Color.orange,
-  top: '-4rem'
-};
-
-const hide = {
-  opacity: '0',
-  transition: 'opacity 1s'
-};
-
-const show = {
-  opacity: '1'
-};
+    width: '5rem',
+    height: '5rem',
+    borderRadius: '50%',
+    backgroundColor: Color.orange,
+    margin: '0 auto',
+    position: 'absolute',
+    bottom: '-8rem',
+    overflow: 'visible',
+    zIndex: '2'
+  },
+  home = {
+    padding: PageGutter,
+    minHeight: '100vh',
+    backgroundColor: Color.background,
+  },
+  openningButtonLine = {
+    position: 'absolute',
+    width: '.7rem',
+    height: '5rem',
+    backgroundColor: Color.orange,
+    top: '-4rem'
+  },
+  hide = {
+    opacity: '0',
+    transition: 'opacity 1s'
+  },
+  show = {
+    opacity: '1'
+  };
 
 export default Home;

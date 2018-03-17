@@ -60,6 +60,7 @@ class AppInitializer {
                      exact/>
               {this.buildRoutes(response)}
               <Route render={() => {
+                console.log(response);
                 return <Redirect {...props} groupName={name} to="/"/>
               }}/>
             </Switch>

@@ -6,7 +6,8 @@ class PoliceCorrectAnswer extends React.Component {
   render() {
     const answer = this.props.location.userInput,
     policeIconUrl = 'http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/police-logo.png',
-      userUrl = 'http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/icon-face.png'
+      userUrl = 'http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/icon-face.png';
+
     return (
       <div id='correctAnswer'
            style={{padding: `0 ${Gutter.def}`}}>

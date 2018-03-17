@@ -22,9 +22,8 @@ class ContactListRightAnswer extends React.Component {
 
   render() {
     const member = this.props.location.member.title,
-      isCorrect = this.props.location.isCorrect;
+      isCorrect = this.props.location.isCorrect; // use isCorrect to put the audio
     let phoneNumber = this.getRandomPhoneNumber();
-console.log(isCorrect == '1' ? 'Correct Answer' : 'Wrong Answer');
     return (
       <div id='member' className='member'>
         <div className='member-panel' style={panel}>

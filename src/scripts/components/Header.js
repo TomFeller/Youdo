@@ -31,6 +31,5 @@ const header = {
 };
 
 const hide = {
-  visibility: 'hidden',
-  header
+  display: 'none'
 };

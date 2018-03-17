@@ -14,6 +14,7 @@ class Tools extends React.Component {
     this.startTimer = this.startTimer.bind(this);
     localStorage.isTimerRunning = false;
     localStorage.warningVerified = false;
+
   }
 
   startTimer() {
@@ -48,8 +49,7 @@ class Tools extends React.Component {
               const postCategory = post.categories[0];
               let iconUrl = post.better_featured_image != null && post.better_featured_image.media_details.sizes.thumbnail.source_url;
               if (postCategory == 6 && post.slug != 'timer') {
-              const bla = post.slug;
-                console.log(bla);
+              const postSlug = post.slug;
                 return (
                   <div key={i}
                        id={'tool-' + post.id}
@@ -59,7 +59,7 @@ class Tools extends React.Component {
                        style={{
                          ...tool,
                          ...!this.state.isTimerRunning && toolDisable,
-                         ...bla == 'clue' ? clue : bla == 'police' ? police : 'contactlist' ? contactlist : ''
+                         ...postSlug == 'clue' ? clue : postSlug == 'police' ? police : 'contactlist' ? contactlist : ''
                        }}>
                     {post.slug == 'clue' && this.state.isTimerRunning &&
                     <WarningMessage content='מתקשים לפתור את החידה? צריכים עזרה? נשמח לסייע. שימו לב! כל רמז יוסיף לכם 5 דקות לזמן המשחק.'

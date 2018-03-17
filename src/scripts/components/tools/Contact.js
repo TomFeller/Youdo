@@ -36,8 +36,7 @@ class ContactList extends React.Component {
     console.log(this.state.contactList);
     this.state.contactList.sort(this.compare);
     return (
-      <div style={{padding:`${Gutter.def}`}}>
-        <h1>{pageData.title.rendered}</h1>
+      <div style={contactList}>
         <HBox>
           <div className='contact-list' style={{width: '100%', marginLeft: Gutter.def}}>
             {
@@ -74,7 +73,15 @@ class ContactList extends React.Component {
   }
 }
 
-const listItem = {
+const
+  contactList = {
+    padding:Gutter.def,
+    backgroundColor: Color.background,
+    zIndex:'3',
+    height: '100vh',
+    overflow: 'scroll'
+  },
+  listItem = {
     display: 'block',
     width: '100%',
     fontSize: FontSize.md,

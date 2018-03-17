@@ -43,6 +43,7 @@ class Clue extends React.Component {
     let postData = DataStore.getPostBySlug('clue');
 
     if (this.state.isValid == true && localStorage.clueVerified == 'true') {
+      localStorage.showHeader = '0';
       return (
         <ClueItem id={this.state.number}/>
       )
