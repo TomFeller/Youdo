@@ -126,9 +126,9 @@ const
   buttons = {
     border: '.2rem solid #000',
     position: 'absolute',
-    height: '20%',
+    height: '15.6rem',
     width: '15rem',
-    top: '43.4%',
+    top: '42.4%',
     left: '50%',
     transform: 'translateX(-52%)'
   },

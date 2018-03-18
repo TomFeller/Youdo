@@ -33,7 +33,6 @@ class ContactList extends React.Component {
     const letters = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת'];
 
     let pageData = DataStore.getPostBySlug('contactlist');
-    console.log(this.state.contactList);
     this.state.contactList.sort(this.compare);
     return (
       <div style={contactList}>

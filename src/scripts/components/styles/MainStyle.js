@@ -25,6 +25,20 @@ const PageGutter = `0 ${Gutter.lg}`;
 
 const Radius = '1rem';
 
+const button = {
+  width: '100%',
+  height: '5rem',
+  backgroundColor: 'transparent',
+  border: '0',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textAlign: 'center',
+  textDecoration: 'none',
+  outline: '0',
+  fontSize: FontSize.md
+};
+
 const App = styled.div`
     background-color: ${Color.background};
     display: flex;
@@ -77,22 +91,13 @@ const App = styled.div`
     width: 100%;
     text-align: center;
     font-size: ${FontSize.md};
+    overflow: hidden;
     * {
       color: #fff;
       
     }
     button, a {
-      width: 100%;
-      height: 5rem;
-      background-color: transparent
-      border: 0;
-      display: flex;
-      align-items: center
-      justify-content: center;
-      text-align: center;
-      text-decoration: none;
-      outline: 0;
-      font-size: ${FontSize.md};
+      ${button}
     }
   `,
 
@@ -106,17 +111,7 @@ const App = styled.div`
       font-size: ${FontSize.md};
     }
     button, a {
-      width:100%;
-      height:5rem;
-      background-color:transparent
-      border: 0;
-      display: flex;
-      align-items: center
-      justify-content: center;
-      text-align: center;
-      outline: 0;
-      text-decoration: none;
-      font-size: ${FontSize.md};
+      ${button}
     }
   `,
 
