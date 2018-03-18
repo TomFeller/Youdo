@@ -78,38 +78,40 @@ class Police extends React.Component {
               id='police'
               className='police'
               style={policeNumbersButtons}>
-            <HBox flexWrap='wrap' flexDirection='row-reverse' style={buttons}>
-              <div style={num} onClick={() => this.numberClick('1')}></div>
-              <div style={num} onClick={() => this.numberClick('2')}></div>
-              <div style={num} onClick={() => this.numberClick('3')}></div>
-              <div style={num} onClick={() => this.numberClick('4')}></div>
-              <div style={num} onClick={() => this.numberClick('5')}></div>
-              <div style={num} onClick={() => this.numberClick('6')}></div>
-              <div style={num} onClick={() => this.numberClick('7')}></div>
-              <div style={num} onClick={() => this.numberClick('8')}></div>
-              <div style={num} onClick={() => this.numberClick('9')}></div>
-              <div style={num} onClick={() => this.numberClick('*')}></div>
-              <div style={num} onClick={() => this.numberClick('0')}></div>
-              <div style={num} onClick={() => this.numberClick('#')}></div>
-            </HBox>
-            <span style={wrongPassword}>{isValid == 0 ? 'סיסמא שגוייה' : ''}</span>
-            <TextBox style={submitButton}>
-              <button onClick={this.submitNumberInput}></button>
-            </TextBox>
+          <HBox flexWrap='wrap' flexDirection='row-reverse' style={buttons}>
+            <div style={num} onClick={() => this.numberClick('1')}></div>
+            <div style={num} onClick={() => this.numberClick('2')}></div>
+            <div style={num} onClick={() => this.numberClick('3')}></div>
+            <div style={num} onClick={() => this.numberClick('4')}></div>
+            <div style={num} onClick={() => this.numberClick('5')}></div>
+            <div style={num} onClick={() => this.numberClick('6')}></div>
+            <div style={num} onClick={() => this.numberClick('7')}></div>
+            <div style={num} onClick={() => this.numberClick('8')}></div>
+            <div style={num} onClick={() => this.numberClick('9')}></div>
+            <div style={num} onClick={() => this.numberClick('*')}></div>
+            <div style={num} onClick={() => this.numberClick('0')}></div>
+            <div style={num} onClick={() => this.numberClick('#')}></div>
+          </HBox>
+          <span style={wrongPassword}>{isValid == 0 ? 'סיסמא שגוייה' : ''}</span>
+          <TextBox style={submitButton}>
+            <button onClick={this.submitNumberInput}></button>
+          </TextBox>
         </VBox>
       );
     }
   }
 }
 
-const policeNumbersButtons = {
+const
+  policeNumbersButtons = {
     padding: Gutter.lg,
     height: '100vh',
     background: 'url("http://127.0.0.1:8082/wordpress/wp-content/uploads/2018/03/callnumbers.png") no-repeat',
-    backgroundSize: 'contain',
     backgroundPositionX: 'center',
     backgroundColor: '#1a8d8d',
-    zIndex:'3'
+    zIndex: '3',
+    backgroundPositionY: 'center',
+    backgroundSize: '40rem'
   },
   submitButton = {
     width: '8rem',
@@ -117,26 +119,27 @@ const policeNumbersButtons = {
     backgroundColor: 'red',
     borderRadius: '50%',
     position: 'absolute',
-    bottom:'8rem',
-    left: '18%',
+    bottom: '13.5%',
+    left: '17%',
     opacity: '.5'
   },
   buttons = {
     border: '.2rem solid #000',
     position: 'absolute',
-    height:'23.2%',
-    width: '37%',
-    top: '42%',
-    left: '31%'
+    height: '20%',
+    width: '15rem',
+    top: '43.4%',
+    left: '50%',
+    transform: 'translateX(-52%)'
   },
   num = {
-    width:'33.33%',
-    border:'1px solid red',
+    width: '33.33%',
+    border: '1px solid red',
 
   },
   wrongPassword = {
     position: 'absolute',
     zIndex: '10'
-  }
+  };
 
 export default Police;
