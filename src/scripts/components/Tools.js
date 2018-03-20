@@ -59,7 +59,7 @@ class Tools extends React.Component {
                        style={{
                          ...tool,
                          ...!this.state.isTimerRunning && toolDisable,
-                         ...postSlug == 'clue' ? clue : postSlug == 'police' ? police : 'contactlist' ? contactlist : ''
+                         ...postSlug == 'clue' ? clue : postSlug == 'police' ? police : 'contactList' ? contactList : ''
                        }}>
                     {post.slug == 'clue' && this.state.isTimerRunning &&
                     <WarningMessage content='מתקשים לפתור את החידה? צריכים עזרה? נשמח לסייע. שימו לב! כל רמז יוסיף לכם 5 דקות לזמן המשחק.'
@@ -109,7 +109,7 @@ const toolIcon = {
 const police = {
   order: '0'
 };
-const contactlist = {
+const contactList = {
   order: '1'
 }
 const clue = {

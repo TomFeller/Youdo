@@ -23,6 +23,15 @@ class Timer extends React.Component {
   }
 
   render() {
+    var _this = this;
+
+    function updateState() {
+      _this.setState({
+        time: localStorage.gameMinutes + ':' + localStorage.gameSeconds,
+      });
+    }
+
+    setInterval(updateState, 1000);
     return (
       <div id='Timer' className='timer'>
         <HBox style={timerWrapper}>
